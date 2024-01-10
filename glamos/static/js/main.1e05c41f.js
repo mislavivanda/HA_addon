@@ -1,4 +1,4 @@
-/*! For license information please see main.f7ccd72b.js.LICENSE.txt */
+/*! For license information please see main.1e05c41f.js.LICENSE.txt */
 "use strict";
 (this.webpackChunkintegration = this.webpackChunkintegration || []).push([
   [179],
@@ -3212,7 +3212,7 @@
               s.setAttributeNS(null, "text-anchor", "middle"),
               (s.textContent = xt(
                 c,
-                h.mainComponentThis.context.userUnit,
+                h.mainComponentThis.measureSystemContext.userUnit,
                 "meter",
                 "feet",
                 2,
@@ -3234,7 +3234,7 @@
               s.setAttributeNS(null, "text-anchor", "middle"),
               (s.textContent = xt(
                 d,
-                h.mainComponentThis.context.userUnit,
+                h.mainComponentThis.measureSystemContext.userUnit,
                 "meter",
                 "feet",
                 2,
@@ -3969,7 +3969,7 @@
                   ),
                   (this.mainComponentThis.sizeText[t].textContent = xt(
                     o,
-                    this.mainComponentThis.context.userUnit
+                    this.mainComponentThis.measureSystemContext.userUnit
                   )),
                   this.mainComponentThis.sizeText[t].textContent < 1
                     ? (this.mainComponentThis.sizeText[t].setAttributeNS(
@@ -4193,7 +4193,7 @@
               (this.mainComponentThis.meter * this.mainComponentThis.meter);
             this.areaValue.current.innerHTML = yt(
               t,
-              this.mainComponentThis.context.userUnit,
+              this.mainComponentThis.measureSystemContext.userUnit,
               "square meter",
               "square foot",
               2,
@@ -5456,7 +5456,7 @@
                   this.lengthTemp.setAttributeNS(null, "fill", "#777777"),
                   (this.lengthTemp.textContent = xt(
                     o,
-                    this.context.userUnit,
+                    this.measureSystemContext.userUnit,
                     "meter",
                     "feet",
                     2,
@@ -5474,7 +5474,7 @@
                   ),
                   (this.lengthTemp.textContent = xt(
                     o,
-                    this.context.userUnit,
+                    this.measureSystemContext.userUnit,
                     "meter",
                     "feet",
                     2,
@@ -6023,7 +6023,15 @@
                 : (this.action = 0),
               (this.boxInfo.current.innerHTML =
                 "<p>Wall added</p><p>Length: ".concat(
-                  xt(e, this.context.userUnit, "meter", "feet", 2, !0, !0),
+                  xt(
+                    e,
+                    this.measureSystemContext.userUnit,
+                    "meter",
+                    "feet",
+                    2,
+                    !0,
+                    !0
+                  ),
                   "</p>"
                 )),
               document.getElementById("line_construc") &&
@@ -7088,7 +7096,7 @@
         constructor(t) {
           super(t),
             (this.smallGridSize =
-              "metric" === t.UserPermissionsContext.userUnit
+              "metric" === t.measureSystemContext.userUnit
                 ? t.svgMeterUnits
                 : M(t.imperialSystemSquareFeetSize, "feet", "meter") *
                   t.svgMeterUnits),
@@ -7481,7 +7489,7 @@
                   : null
               ),
               (0, r.jsx)(zi, {
-                UserPermissionsContext: this.props.UserPermissionsContext,
+                measureSystemContext: this.props.measureSystemContext,
                 svgMeterUnits: this.props.svgMeterUnits,
                 imperialSystemSquareFeetSize:
                   this.props.imperialSystemSquareFeetSize,
@@ -7640,7 +7648,8 @@
                     ref: this.props.mainComponentThis.scaleVal,
                     className: "pull-right scale-box",
                     children:
-                      "metric" === this.props.mainComponentThis.context.userUnit
+                      "metric" ===
+                      this.props.mainComponentThis.measureSystemContext.userUnit
                         ? "1m"
                         : "".concat(
                             this.props.mainComponentThis
@@ -8090,7 +8099,7 @@
               const n = xt(
                   this.floorplanBoundingBoxCurrentParams.width /
                     this.props.mainComponentThis.meter,
-                  this.props.mainComponentThis.context.userUnit,
+                  this.props.mainComponentThis.measureSystemContext.userUnit,
                   "meter",
                   "feet",
                   this.floorplanDimensionsDecimalPrecision
@@ -8098,7 +8107,7 @@
                 o = xt(
                   this.floorplanBoundingBoxCurrentParams.length /
                     this.props.mainComponentThis.meter,
-                  this.props.mainComponentThis.context.userUnit,
+                  this.props.mainComponentThis.measureSystemContext.userUnit,
                   "meter",
                   "feet",
                   this.floorplanDimensionsDecimalPrecision
@@ -8227,7 +8236,8 @@
                     (this.props.mainComponentThis.boxInfo.current.innerHTML =
                       "Insert selected line length in ".concat(
                         "metric" ===
-                          this.props.mainComponentThis.context.userUnit
+                          this.props.mainComponentThis.measureSystemContext
+                            .userUnit
                           ? "meters(m)"
                           : "feet(ft)"
                       )),
@@ -8288,7 +8298,7 @@
               const t =
                 gt(
                   parseFloat(this.selectedWallLengthInput.current.getValue()),
-                  this.props.mainComponentThis.context.userUnit
+                  this.props.mainComponentThis.measureSystemContext.userUnit
                 ) * this.props.mainComponentThis.meter;
               let e = this.wallLineGroup.querySelector("#startCircle"),
                 i = this.wallLineGroup.querySelector("#endCircle");
@@ -8372,7 +8382,7 @@
                 ((this.floorplanBoundingBoxCurrentParams.width =
                   gt(
                     parseFloat(t),
-                    this.props.mainComponentThis.context.userUnit
+                    this.props.mainComponentThis.measureSystemContext.userUnit
                   ) * this.props.mainComponentThis.meter),
                 this.state.preserveAspectRatio &&
                   (this.floorplanBoundingBoxCurrentParams.length =
@@ -8386,7 +8396,7 @@
                 ((this.floorplanBoundingBoxCurrentParams.length =
                   gt(
                     parseFloat(t),
-                    this.props.mainComponentThis.context.userUnit
+                    this.props.mainComponentThis.measureSystemContext.userUnit
                   ) * this.props.mainComponentThis.meter),
                 this.state.preserveAspectRatio &&
                   (this.floorplanBoundingBoxCurrentParams.width =
@@ -8435,12 +8445,14 @@
               length: 0,
             }),
             (this.floorplanDimensionsInputStep =
-              (t.mainComponentThis.context.userUnit, 0.1)),
+              (t.mainComponentThis.measureSystemContext.userUnit, 0.1)),
             (this.floorplanDimensionsDecimalPrecision = -Math.log10(
               this.floorplanDimensionsInputStep
             )),
             (this.lineLengthInputStep =
-              "metric" === t.mainComponentThis.context.userUnit ? 0.01 : 0.1),
+              "metric" === t.mainComponentThis.measureSystemContext.userUnit
+                ? 0.01
+                : 0.1),
             (this.lineLengthDecimalPrecision = -Math.log10(
               this.lineLengthInputStep
             )),
@@ -8556,7 +8568,8 @@
                       children: (0, r.jsx)("b", {
                         children: "NOTE: 1 grid square equals ".concat(
                           "metric" ===
-                            this.props.mainComponentThis.context.userUnit
+                            this.props.mainComponentThis.measureSystemContext
+                              .userUnit
                             ? "1 meter"
                             : "".concat(
                                 this.props.mainComponentThis
@@ -8609,7 +8622,8 @@
                         (0, r.jsx)(Ut, {
                           label: "Floorplan width(".concat(
                             "metric" ===
-                              this.props.mainComponentThis.context.userUnit
+                              this.props.mainComponentThis.measureSystemContext
+                                .userUnit
                               ? "m"
                               : "ft",
                             ")"
@@ -8652,7 +8666,8 @@
                         (0, r.jsx)(Ut, {
                           label: "Floorplan length(".concat(
                             "metric" ===
-                              this.props.mainComponentThis.context.userUnit
+                              this.props.mainComponentThis.measureSystemContext
+                                .userUnit
                               ? "m"
                               : "ft",
                             ")"
@@ -8715,7 +8730,8 @@
                                                     "metric" ===
                                                       this.props
                                                         .mainComponentThis
-                                                        .context.userUnit
+                                                        .measureSystemContext
+                                                        .userUnit
                                                       ? "meters(m)"
                                                       : "feet(ft)"
                                                   ),
@@ -8746,7 +8762,8 @@
                                                 "Insert line length(".concat(
                                                   "metric" ===
                                                     this.props.mainComponentThis
-                                                      .context.userUnit
+                                                      .measureSystemContext
+                                                      .userUnit
                                                     ? "m"
                                                     : "ft",
                                                   ")"
@@ -9468,7 +9485,7 @@
       function Nn(t) {
         const e = this.meter * t;
         let i =
-          "metric" === this.context.userUnit
+          "metric" === this.measureSystemContext.userUnit
             ? e
             : M(this.imperialSystemSquareFeetSize, "feet", "meter") * e;
         this.scaleVal.current.style.width = i + "px";
@@ -9529,9 +9546,11 @@
                 this.onDoorWindowWidthChange(
                   xt(
                     this.selectedBinder.obj.size / this.meter,
-                    this.context.userUnit,
+                    this.measureSystemContext.userUnit,
                     "meter",
-                    "metric" === this.context.userUnit ? "centimeter" : "inch",
+                    "metric" === this.measureSystemContext.userUnit
+                      ? "centimeter"
+                      : "inch",
                     this.doorWindowWidthDecimalPrecision,
                     !1,
                     !1,
@@ -9608,7 +9627,7 @@
       }
       function Gn(t) {
         let e =
-          gt(t, this.context.userUnit) * this.meter -
+          gt(t, this.measureSystemContext.userUnit) * this.meter -
           mt(this.selectedBinder.wall.start, this.selectedBinder.wall.end);
         if (0 !== e) {
           let i = pt(
@@ -11220,7 +11239,10 @@
                   "system-ui"
                 ),
                 this.sizeText[t].setAttributeNS(null, "stroke", "#ffffff"),
-                (this.sizeText[t].textContent = xt(o, this.context.userUnit)),
+                (this.sizeText[t].textContent = xt(
+                  o,
+                  this.measureSystemContext.userUnit
+                )),
                 this.sizeText[t].textContent < 1
                   ? (this.sizeText[t].setAttributeNS(
                       null,
@@ -11532,7 +11554,7 @@
                     this.sizeText[e].setAttributeNS(null, "stroke", "#ffffff"),
                     (this.sizeText[e].textContent = xt(
                       a,
-                      this.context.userUnit
+                      this.measureSystemContext.userUnit
                     )),
                     this.sizeText[e].textContent < 1
                       ? (this.sizeText[e].setAttributeNS(
@@ -11727,7 +11749,7 @@
             null !== t
               ? yt(
                   t,
-                  this.context.userUnit,
+                  this.measureSystemContext.userUnit,
                   "square meter",
                   "square foot",
                   this.roomSurfaceDecimalPrecision,
@@ -11746,7 +11768,7 @@
         ) {
           const t = yt(
             e.surface,
-            this.context.userUnit,
+            this.measureSystemContext.userUnit,
             "square meter",
             "square foot",
             this.roomSurfaceDecimalPrecision
@@ -11765,9 +11787,11 @@
       function ls(t) {
         const e = xt(
             t.thick / this.meter,
-            this.context.userUnit,
+            this.measureSystemContext.userUnit,
             "meter",
-            "metric" === this.context.userUnit ? "centimeter" : "inch",
+            "metric" === this.measureSystemContext.userUnit
+              ? "centimeter"
+              : "inch",
             this.wallWidthDecimalPrecision,
             !1,
             !1,
@@ -11775,7 +11799,7 @@
           ),
           i = xt(
             mt(t.start, t.end) / this.meter,
-            this.context.userUnit,
+            this.measureSystemContext.userUnit,
             "meter",
             "feet",
             this.wallLengthDecimalPrecision
@@ -11806,9 +11830,11 @@
       function hs(t) {
         const e = xt(
           t.size / this.meter,
-          this.context.userUnit,
+          this.measureSystemContext.userUnit,
           "meter",
-          "metric" === this.context.userUnit ? "centimeter" : "inch",
+          "metric" === this.measureSystemContext.userUnit
+            ? "centimeter"
+            : "inch",
           this.doorWindowWidthDecimalPrecision,
           !1,
           !1,
@@ -13497,7 +13523,8 @@
                   (0, r.jsx)(ce.jf, {
                     className: "scale-control",
                     measurement:
-                      "metric" === this.props.mainComponentThis.context.userUnit
+                      "metric" ===
+                      this.props.mainComponentThis.measureSystemContext.userUnit
                         ? "km"
                         : "mi",
                   }),
@@ -16512,8 +16539,8 @@
                                       className: "scale-control",
                                       measurement:
                                         "metric" ===
-                                        this.props.mainComponentThis.context
-                                          .userUnit
+                                        this.props.mainComponentThis
+                                          .measureSystemContext.userUnit
                                           ? "km"
                                           : "mi",
                                     }),
@@ -16951,8 +16978,10 @@
         const e =
           gt(
             parseFloat(t),
-            this.context.userUnit,
-            "metric" === this.context.userUnit ? "centimeter" : "inch",
+            this.measureSystemContext.userUnit,
+            "metric" === this.measureSystemContext.userUnit
+              ? "centimeter"
+              : "inch",
             "meter",
             !0
           ) * this.meter;
@@ -16996,8 +17025,10 @@
         const e =
           gt(
             parseFloat(t),
-            this.context.userUnit,
-            "metric" === this.context.userUnit ? "centimeter" : "inch",
+            this.measureSystemContext.userUnit,
+            "metric" === this.measureSystemContext.userUnit
+              ? "centimeter"
+              : "inch",
             "meter",
             !0
           ) * this.meter;
@@ -17126,7 +17157,7 @@
         "None" === e && (e = ""), (t.name = e);
         let i = yt(
           parseFloat(this.roomSurface.current.getValue()),
-          this.context.userUnit,
+          this.measureSystemContext.userUnit,
           "square foot",
           "square meter",
           12
@@ -17231,7 +17262,7 @@
       }
       var $a = i(1317);
       class tl extends n.Component {
-        constructor(t, e) {
+        constructor(t) {
           super(t),
             (this.getServicesForEntity = (t, e) => {
               let i = [];
@@ -17322,6 +17353,12 @@
             (this.useGenerateHMWebWorkers =
               "undefined" !== typeof Worker &&
               "undefined" !== typeof OffscreenCanvas),
+            (this.measureSystemContext = {
+              userUnit:
+                "km" !== t.userConfig.unit_system.length
+                  ? "metric"
+                  : "imperial",
+            }),
             (this.currentRouteID = t.routeID),
             (this.WALLS = []),
             (this.ORPHANWALLS = []),
@@ -17341,21 +17378,29 @@
             (this.wallBinderPulsingBallRadius = 5),
             (this.nearWallBinderRadius = 6),
             (this.nearWallConstrucRadius = 12),
-            (this.wallThicknessMinValue = "metric" === e.userUnit ? 3 : 1),
-            (this.wallThicknessMaxValue = "metric" === e.userUnit ? 50 : 20),
+            (this.wallThicknessMinValue =
+              "metric" === this.measureSystemContext.userUnit ? 3 : 1),
+            (this.wallThicknessMaxValue =
+              "metric" === this.measureSystemContext.userUnit ? 50 : 20),
             (this.wallWidthInputStep = 0.1),
             (this.wallWidthDecimalPrecision = -Math.log10(
               this.wallWidthInputStep
             )),
-            (this.wallLengthInputStep = "metric" === e.userUnit ? 0.01 : 0.1),
+            (this.wallLengthInputStep =
+              "metric" === this.measureSystemContext.userUnit ? 0.01 : 0.1),
             (this.wallLengthDecimalPrecision = -Math.log10(
               this.wallLengthInputStep
             )),
-            (this.doorWidthMinValue = "metric" === e.userUnit ? 40 : 15),
-            (this.doorWidthMaxValue = "metric" === e.userUnit ? 120 : 50),
-            (this.windowWidthMinValue = "metric" === e.userUnit ? 30 : 10),
-            (this.windowWidthMaxValue = "metric" === e.userUnit ? 300 : 120),
-            (this.doorWindowWidthInputStep = "metric" === e.userUnit ? 1 : 0.1),
+            (this.doorWidthMinValue =
+              "metric" === this.measureSystemContext.userUnit ? 40 : 15),
+            (this.doorWidthMaxValue =
+              "metric" === this.measureSystemContext.userUnit ? 120 : 50),
+            (this.windowWidthMinValue =
+              "metric" === this.measureSystemContext.userUnit ? 30 : 10),
+            (this.windowWidthMaxValue =
+              "metric" === this.measureSystemContext.userUnit ? 300 : 120),
+            (this.doorWindowWidthInputStep =
+              "metric" === this.measureSystemContext.userUnit ? 1 : 0.1),
             (this.doorWindowWidthDecimalPrecision = -Math.log10(
               this.doorWindowWidthInputStep
             )),
@@ -17372,12 +17417,15 @@
             (this.showRib = !0),
             (this.meter = 30),
             (this.imperialSystemSquareFeetSize = 3),
-            (this.wallThicknessDefaultValue = "metric" === e.userUnit ? 16 : 6),
+            (this.wallThicknessDefaultValue =
+              "metric" === this.measureSystemContext.userUnit ? 16 : 6),
             (this.wallSize =
               gt(
                 this.wallThicknessDefaultValue,
-                e.userUnit,
-                "metric" === e.userUnit ? "centimeter" : "inch",
+                this.measureSystemContext.userUnit,
+                "metric" === this.measureSystemContext.userUnit
+                  ? "centimeter"
+                  : "inch",
                 "meter",
                 !0
               ) * this.meter),
@@ -25400,1170 +25448,383 @@
         }
         render() {
           const { responseError: t } = this.state;
-          return (0, r.jsxs)(n.Fragment, {
-            children: [
-              (0, r.jsx)("div", { ref: this.loadingComponentContainer }),
-              " ",
-              (0, r.jsx)(jt, {
-                responseError: t,
-                errorMessageCheckDisabled: !0,
-                children: (0, r.jsx)(bt, {
-                  indoorMapping: !0,
+          return (
+            $a.log("Context", this.measureSystemContext),
+            (0, r.jsxs)(n.Fragment, {
+              children: [
+                (0, r.jsx)("div", { ref: this.loadingComponentContainer }),
+                " ",
+                (0, r.jsx)(jt, {
                   responseError: t,
-                  children: (0, r.jsxs)("div", {
-                    className: "main-container full-height",
-                    style: { overflow: "hidden" },
-                    children: [
-                      (0, r.jsxs)("div", {
-                        className: "svg-canvases-container full-height",
-                        children: [
-                          (0, r.jsx)("div", {
-                            ref: this.mapLayer2DContainerRef,
-                            className: "map-layer-container",
-                          }),
-                          (0, r.jsxs)("svg", {
-                            ref: this.gridSvgElementRef,
-                            className: "grid-svg-element lin full-height",
-                            viewBox: "0 0 1100 700",
-                            preserveAspectRatio: "xMidYMin slice",
-                            xmlns: "http://www.w3.org/2000/svg",
-                            children: [
-                              (0, r.jsx)("defs", {
-                                children: (0, r.jsx)(zi, {
-                                  UserPermissionsContext: this.context,
+                  errorMessageCheckDisabled: !0,
+                  children: (0, r.jsx)(bt, {
+                    indoorMapping: !0,
+                    responseError: t,
+                    children: (0, r.jsxs)("div", {
+                      className: "main-container full-height",
+                      style: { overflow: "hidden" },
+                      children: [
+                        (0, r.jsxs)("div", {
+                          className: "svg-canvases-container full-height",
+                          children: [
+                            (0, r.jsx)("div", {
+                              ref: this.mapLayer2DContainerRef,
+                              className: "map-layer-container",
+                            }),
+                            (0, r.jsxs)("svg", {
+                              ref: this.gridSvgElementRef,
+                              className: "grid-svg-element lin full-height",
+                              viewBox: "0 0 1100 700",
+                              preserveAspectRatio: "xMidYMin slice",
+                              xmlns: "http://www.w3.org/2000/svg",
+                              children: [
+                                (0, r.jsx)("defs", {
+                                  children: (0, r.jsx)(zi, {
+                                    measureSystemContext:
+                                      this.measureSystemContext,
+                                    svgMeterUnits: this.meter,
+                                    imperialSystemSquareFeetSize:
+                                      this.imperialSystemSquareFeetSize,
+                                  }),
+                                }),
+                                (0, r.jsx)("g", {
+                                  ref: this.boxGridRef,
+                                  className: "svgGrid box-grid fade-in",
+                                  children: (0, r.jsx)("rect", {
+                                    width: 2e4,
+                                    height: 2e4,
+                                    x: -3500,
+                                    y: -2e3,
+                                    fill: "url(#grid)",
+                                  }),
+                                }),
+                              ],
+                            }),
+                            (0, r.jsxs)("svg", {
+                              ref: this.linRef,
+                              viewBox: "0 0 1100 700",
+                              preserveAspectRatio: "xMidYMin slice",
+                              xmlns: "http://www.w3.org/2000/svg",
+                              className: "lin full-height",
+                              onClick: (t) => t.preventDefault(),
+                              onMouseUp: (t) => this.handleMouseUp(t),
+                              onMouseDown: (t) => this.handleMouseDown(t),
+                              onMouseMove: (t) => {
+                                k(
+                                  t,
+                                  (t) => {
+                                    this.handleMouseMove(t);
+                                  },
+                                  30
+                                )();
+                              },
+                              children: [
+                                (0, r.jsx)(Qi, {
+                                  wallMaterials: this.wallMaterials,
+                                  floorplanImagePattern:
+                                    this.floorplanImagePattern,
+                                  floorplanImage: this.floorplanImage,
+                                  measureSystemContext:
+                                    this.measureSystemContext,
                                   svgMeterUnits: this.meter,
                                   imperialSystemSquareFeetSize:
                                     this.imperialSystemSquareFeetSize,
                                 }),
-                              }),
-                              (0, r.jsx)("g", {
-                                ref: this.boxGridRef,
-                                className: "svgGrid box-grid fade-in",
-                                children: (0, r.jsx)("rect", {
-                                  width: 2e4,
-                                  height: 2e4,
-                                  x: -3500,
-                                  y: -2e3,
-                                  fill: "url(#grid)",
+                                (0, r.jsx)("g", {
+                                  className: "boxGrid",
+                                  style: { opacity: 0 },
+                                  children: (0, r.jsx)("rect", {
+                                    width: 2e4,
+                                    height: 2e4,
+                                    x: -3500,
+                                    y: -2e3,
+                                    fill: "url(#grid)",
+                                  }),
                                 }),
-                              }),
-                            ],
-                          }),
-                          (0, r.jsxs)("svg", {
-                            ref: this.linRef,
-                            viewBox: "0 0 1100 700",
-                            preserveAspectRatio: "xMidYMin slice",
-                            xmlns: "http://www.w3.org/2000/svg",
-                            className: "lin full-height",
-                            onClick: (t) => t.preventDefault(),
-                            onMouseUp: (t) => this.handleMouseUp(t),
-                            onMouseDown: (t) => this.handleMouseDown(t),
-                            onMouseMove: (t) => {
-                              k(
-                                t,
-                                (t) => {
-                                  this.handleMouseMove(t);
-                                },
-                                30
-                              )();
-                            },
-                            children: [
-                              (0, r.jsx)(Qi, {
-                                wallMaterials: this.wallMaterials,
-                                floorplanImagePattern:
-                                  this.floorplanImagePattern,
-                                floorplanImage: this.floorplanImage,
-                                UserPermissionsContext: this.context,
-                                svgMeterUnits: this.meter,
-                                imperialSystemSquareFeetSize:
-                                  this.imperialSystemSquareFeetSize,
-                              }),
-                              (0, r.jsx)("g", {
-                                className: "boxGrid",
-                                style: { opacity: 0 },
-                                children: (0, r.jsx)("rect", {
-                                  width: 2e4,
-                                  height: 2e4,
-                                  x: -3500,
-                                  y: -2e3,
-                                  fill: "url(#grid)",
+                                (0, r.jsx)("g", {
+                                  id: "boxFloorplan",
+                                  ref: this.boxFloorplanImage,
+                                  className: "box-floorplan fade-in",
                                 }),
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxFloorplan",
-                                ref: this.boxFloorplanImage,
-                                className: "box-floorplan fade-in",
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxSurface",
-                                ref: this.boxSurface,
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxRoom",
-                                ref: this.boxRoom,
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxWall",
-                                ref: this.boxWall,
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxCarpentry",
-                                ref: this.boxCarpentry,
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxBind",
-                                ref: this.boxBind,
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxArea",
-                                ref: this.boxArea,
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxRib",
-                                ref: this.boxRib,
-                                className: "box-rib fade-in",
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxScale",
-                                ref: this.boxScale,
-                                className: "box-scale fade-in",
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxText",
-                                ref: this.boxText,
-                              }),
-                              (0, r.jsx)("g", {
-                                id: "boxDebug",
-                                ref: this.boxDebug,
-                              }),
-                            ],
-                          }),
-                        ],
-                      }),
-                      (0, r.jsx)("div", {
-                        ref: this.floorplan3DContainerRef,
-                        className: "floorplan3D-container full-height hidden",
-                      }),
-                      (0, r.jsx)("div", {
-                        ref: this.showFloorplanOnMapContainerRef,
-                        className:
-                          "indoor-modal show-floorplan-on-map-container",
-                      }),
-                      (0, r.jsx)("div", {
-                        ref: this.areaValue,
-                        className: "areaValue hidden",
-                      }),
-                      (0, r.jsx)(Ei, {
-                        modalRef: this.wallTurnCWSystemExceptionModal,
-                        modalBody: (0, r.jsxs)(n.Fragment, {
-                          children: [
-                            (0, r.jsx)("div", {
-                              children: (0, r.jsx)("p", {
-                                className: "indoor-paragraph-centered",
-                                children:
-                                  "Nije pronaden nijedan pravi zid kod CW odredivanja zidova - roomMaker() metoda",
-                              }),
-                            }),
-                            (0, r.jsx)("div", {
-                              className: "indoor-modal-row center",
-                              children: (0, r.jsx)(Ct, {
-                                type: "primary",
-                                onClick: () =>
-                                  G(
-                                    this.wallTurnCWSystemExceptionModal.current,
-                                    this.modalTimeout
-                                  ),
-                                children: "CLOSE",
-                              }),
+                                (0, r.jsx)("g", {
+                                  id: "boxSurface",
+                                  ref: this.boxSurface,
+                                }),
+                                (0, r.jsx)("g", {
+                                  id: "boxRoom",
+                                  ref: this.boxRoom,
+                                }),
+                                (0, r.jsx)("g", {
+                                  id: "boxWall",
+                                  ref: this.boxWall,
+                                }),
+                                (0, r.jsx)("g", {
+                                  id: "boxCarpentry",
+                                  ref: this.boxCarpentry,
+                                }),
+                                (0, r.jsx)("g", {
+                                  id: "boxBind",
+                                  ref: this.boxBind,
+                                }),
+                                (0, r.jsx)("g", {
+                                  id: "boxArea",
+                                  ref: this.boxArea,
+                                }),
+                                (0, r.jsx)("g", {
+                                  id: "boxRib",
+                                  ref: this.boxRib,
+                                  className: "box-rib fade-in",
+                                }),
+                                (0, r.jsx)("g", {
+                                  id: "boxScale",
+                                  ref: this.boxScale,
+                                  className: "box-scale fade-in",
+                                }),
+                                (0, r.jsx)("g", {
+                                  id: "boxText",
+                                  ref: this.boxText,
+                                }),
+                                (0, r.jsx)("g", {
+                                  id: "boxDebug",
+                                  ref: this.boxDebug,
+                                }),
+                              ],
                             }),
                           ],
                         }),
-                        modalFooter: null,
-                      }),
-                      (0, r.jsxs)("div", {
-                        ref: this.drawingAreaPopup,
-                        className: "drawing-area-popup",
-                        children: [
-                          (0, r.jsx)("div", { className: "popup-tip" }),
-                          (0, r.jsx)("div", {
-                            className: "popup-content",
-                            children: (0, r.jsxs)("div", {
-                              className: "popup-content-container",
-                              children: [
-                                (0, r.jsx)("div", {
-                                  className: "close-tooltip",
-                                  children: (0, r.jsx)("div", {
-                                    onClick: this.onDrawingAreaPopupCloseClick,
-                                    children: (0, r.jsx)(Ye.Z, {}),
-                                  }),
-                                }),
-                                (0, r.jsx)("div", {
-                                  ref: this.popupContentRef,
-                                  className: "content-mounting-container",
-                                }),
-                              ],
-                            }),
-                          }),
-                        ],
-                      }),
-                      (0, r.jsxs)(on, {
-                        containerRef: this.wallTools,
-                        onCloseRightBox: this.onWallToolsCloseClick,
-                        children: [
-                          (0, r.jsx)("h3", { children: "Modify the wall" }),
-                          (0, r.jsx)(bn, {
-                            ref: this.wallWidthNumberSliderInput,
-                            sliderInputRef: this.wallWidth,
-                            valueLabelText: (0, r.jsxs)(n.Fragment, {
-                              children: [
-                                "Width [",
-                                (0, r.jsx)("span", {
-                                  children: ""
-                                    .concat(this.wallThicknessMinValue, "-")
-                                    .concat(this.wallThicknessMaxValue),
-                                }),
-                                "] :",
-                                " ",
-                                (0, r.jsx)("span", {
-                                  ref: this.wallWidthValue,
-                                }),
-                                " ",
-                                (0, r.jsx)("span", {
-                                  children: "".concat(
-                                    "metric" === this.context.userUnit
-                                      ? "cm"
-                                      : "in"
-                                  ),
-                                }),
-                              ],
-                            }),
-                            sliderStep: this.wallWidthInputStep,
-                            minValue: this.wallThicknessMinValue,
-                            maxValue: this.wallThicknessMaxValue,
-                            onSliderValueChanged: this.onWallWidthInputChange,
-                            onSliderChangeFinished: () => {
-                              (this.saveNeeded = !0),
-                                this.save(!1, !0),
-                                this.editor.showScaleBox();
-                            },
-                          }),
-                          (0, r.jsx)(Ut, {
-                            label: (0, r.jsxs)(n.Fragment, {
-                              children: [
-                                "Length: ",
-                                (0, r.jsx)("span", {
-                                  ref: this.wallLengthValue,
-                                }),
-                                " ",
-                                (0, r.jsx)("span", {
-                                  children: "".concat(
-                                    "metric" === this.context.userUnit
-                                      ? "m"
-                                      : "ft"
-                                  ),
-                                }),
-                              ],
-                            }),
-                            children: (0, r.jsx)(Rt, {
-                              ref: this.wallLength,
-                              inputStep: this.wallLengthInputStep,
-                              inputMin: this.wallLengthInputStep,
-                              inputMax: 1 / 0,
-                              onInputValueChanged: this.onWallLengthInputChange,
-                              checkInputValueChangeBeforeCall: !0,
-                            }),
-                          }),
-                          (0, r.jsx)(Ut, {
-                            label: "Wall material",
-                            children: (0, r.jsx)(Jt, {
-                              ref: this.wallMaterialSelectRef,
-                              dropdownMenuRef: this.wallMaterialDropdownMenu,
-                              onListItemClick: this.onWallMaterialListItemClick,
-                              listItems: this.wallMaterials.map((t) => t.title),
-                            }),
-                          }),
-                          (0, r.jsx)("div", {
-                            className: "button-centered-container",
-                            children: (0, r.jsx)(Ct, {
-                              type: "delete",
-                              onClick: this.onWallTrashClick,
-                              children: "Delete wall",
-                            }),
-                          }),
-                        ],
-                      }),
-                      (0, r.jsxs)(on, {
-                        containerRef: this.objBoundingBox,
-                        onCloseRightBox: this.onObjBoundingBoxBackButtonClick,
-                        children: [
-                          (0, r.jsx)("h3", { children: "Modify text" }),
-                          (0, r.jsx)(bn, {
-                            ref: this.objBoundingBoxRotationNumberSliderInput,
-                            sliderInputRef: this.bboxRotation,
-                            valueLabelText: (0, r.jsxs)(n.Fragment, {
-                              children: [
-                                (0, r.jsx)(hi, {}),
-                                "Rotation : ",
-                                (0, r.jsx)("span", {
-                                  ref: this.bboxRotationVal,
-                                }),
-                                " \xb0",
-                              ],
-                            }),
-                            sliderStep: 1,
-                            minValue: -180,
-                            maxValue: 180,
-                            onSliderValueChanged: this.onBBoxRotationChange,
-                            onSliderChangeFinished: () => {
-                              (this.saveNeeded = !0), this.save(!1, !0);
-                            },
-                          }),
-                          (0, r.jsx)(bn, {
-                            ref: this.objBoundingBoxFontSizeNumberSliderInput,
-                            sliderInputRef: this.modifyFontSizeSlider,
-                            valueLabelText: (0, r.jsxs)(n.Fragment, {
-                              children: [
-                                (0, r.jsx)(ci, {}),
-                                "Font size : ",
-                                (0, r.jsx)("span", {
-                                  ref: this.bboxFontSizeVal,
-                                }),
-                              ],
-                            }),
-                            sliderStep: 0.1,
-                            minValue: 10,
-                            maxValue: 70,
-                            onSliderValueChanged: this.onModifyFontSizeChange,
-                            onSliderChangeFinished: () => {
-                              (this.saveNeeded = !0), this.save(!1, !0);
-                            },
-                          }),
-                          (0, r.jsx)(Et, {
-                            formGroupRef: this.objBoundingBoxTextContent,
-                            label: (0, r.jsxs)(n.Fragment, {
-                              children: [(0, r.jsx)(mi, {}), "Text content:"],
-                            }),
-                            labelStyle: {
-                              display: "flex",
-                              alignItems: "center",
-                            },
-                            inputRef: this.modifyTextContent,
-                            onChange: this.onModifyTextContentChange,
-                          }),
-                          (0, r.jsx)(Ut, {
-                            labelStyle: {
-                              display: "flex",
-                              alignItems: "center",
-                            },
-                            label: (0, r.jsxs)(n.Fragment, {
-                              children: [(0, r.jsx)(ui, {}), "Text color:"],
-                            }),
-                            children: (0, r.jsx)("div", {
-                              className: "color-grid-container",
-                              children: be.map((t) =>
-                                (0, r.jsx)(
-                                  "div",
-                                  {
-                                    className: "color textEditorColorModify",
-                                    style: {
-                                      color: t.gradientStartColor,
-                                      background: "linear-gradient(30deg, "
-                                        .concat(t.gradientStartColor, ", ")
-                                        .concat(t.gradientStopColor, ")"),
-                                    },
-                                  },
-                                  t.gradientStartColor
-                                )
-                              ),
-                            }),
-                          }),
-                          (0, r.jsx)("div", {
-                            className: "button-centered-container",
-                            children: (0, r.jsx)(Ct, {
-                              type: "delete",
-                              onClick: this.onObjectBBoxDeleteClick,
-                              children: "Delete text",
-                            }),
-                          }),
-                        ],
-                      }),
-                      (0, r.jsx)(An, {
-                        ref: this.uploadFloorplanImageToolsRef,
-                        mainComponentThis: this,
-                        floorplanImageTools: this.floorplanImageTools,
-                        uploadImageFloorplanSettingsIconRef:
-                          this.uploadImageFloorplanSettingsIconRef,
-                        uploadFloorplanImageStatusContainerRef:
-                          this.uploadFloorplanImageStatusContainerRef,
-                        uploadImageFloorplanHideRef:
-                          this.uploadImageFloorplanHideRef,
-                        uploadImageFloorplanShowRef:
-                          this.uploadImageFloorplanShowRef,
-                        boxFloorplanImage: this.boxFloorplanImage,
-                        uploadFloorplanImageErrorMessageRef:
-                          this.uploadFloorplanImageErrorMessageRef,
-                        uploadFloorplanImageErrorModal:
-                          this.uploadFloorplanImageErrorModal,
-                        floorplanImagePattern: this.floorplanImagePattern,
-                        floorplanImage: this.floorplanImage,
-                      }),
-                      (0, r.jsxs)(on, {
-                        containerRef: this.objTools,
-                        onCloseRightBox: this.onDoorWindowCloseClick,
-                        children: [
-                          (0, r.jsx)("h3", {
-                            ref: this.objToolsTitleRef,
-                            children: "Modify door",
-                          }),
-                          (0, r.jsx)("div", {
-                            ref: this.objToolsHinge,
-                            children: (0, r.jsx)("div", {
-                              className: "button-centered-container",
-                              children: (0, r.jsx)(Ct, {
-                                type: "primary",
-                                onClick: this.onObjToolsHingeClick,
-                                children: "REVERSE SWING",
-                              }),
-                            }),
-                          }),
-                          (0, r.jsx)("br", { ref: this.objToolsBreakLine }),
-                          (0, r.jsx)(bn, {
-                            ref: this.doorWindowWidthNumberSliderInput,
-                            sliderInputRef: this.doorWindowWidth,
-                            valueLabelText: (0, r.jsxs)(n.Fragment, {
-                              children: [
-                                "Width [",
-                                (0, r.jsx)("span", {
-                                  ref: this.doorWindowWidthScale,
-                                }),
-                                "] : ",
-                                (0, r.jsx)("span", {
-                                  ref: this.doorWindowWidthVal,
-                                }),
-                                " ",
-                                (0, r.jsx)("span", {
-                                  children: "".concat(
-                                    "metric" === this.context.userUnit
-                                      ? "cm"
-                                      : "in"
-                                  ),
-                                }),
-                              ],
-                            }),
-                            sliderStep: this.doorWindowWidthInputStep,
-                            onSliderValueChanged: this.onDoorWindowWidthChange,
-                            onSliderChangeFinished: () => {
-                              (this.saveNeeded = !0), this.save(!1, !0);
-                            },
-                          }),
-                          (0, r.jsx)("div", {
-                            className: "button-centered-container",
-                            children: (0, r.jsx)(Ct, {
-                              type: "delete",
-                              onClick: this.onObjTrashButtonClick,
-                              children: (0, r.jsx)("span", {
-                                ref: this.objToolsDeleteButtonText,
-                                children: "Delete door",
-                              }),
-                            }),
-                          }),
-                        ],
-                      }),
-                      (0, r.jsxs)(on, {
-                        containerRef: this.roomTools,
-                        onCloseRightBox: this.onResetRoomToolsClick,
-                        children: [
-                          (0, r.jsx)(Ut, {
-                            label: (0, r.jsxs)(n.Fragment, {
-                              children: [
-                                "Estimated surface: ",
-                                (0, r.jsx)("span", { className: "size" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)(Ut, {
-                            label:
-                              "If you have the actual area, you can write it(".concat(
-                                "metric" === this.context.userUnit
-                                  ? "m\xb2"
-                                  : "ft\xb2",
-                                ")"
-                              ),
-                            children: (0, r.jsx)(Rt, {
-                              ref: this.roomSurface,
-                              placeholder: "Real surface",
-                              inputStep: this.roomSurfaceInputStep,
-                              inputMin: this.roomSurfaceInputStep,
-                              inputMax: 1 / 0,
-                              checkInputValueChangeBeforeCall: !0,
-                            }),
-                          }),
-                          (0, r.jsx)(Et, {
-                            label: "Type room name",
-                            inputRef: this.roomName,
-                            placeholder: "e.g. Bedroom",
-                          }),
-                          (0, r.jsx)(Ut, {
-                            label: "or select it:",
-                            children: (0, r.jsx)(Jt, {
-                              ref: this.roomNameSelectRef,
-                              dropdownMenuRef: this.roomNameDropdownMenu,
-                              onListItemClick: this.onRoomNameItemClick,
-                              listItems: we,
-                            }),
-                          }),
-                          (0, r.jsxs)("div", {
-                            children: [
-                              (0, r.jsx)(Ct, {
-                                type: "primary",
-                                onClick: this.onApplySurfaceClick,
-                                children: "Apply",
-                              }),
-                              (0, r.jsx)(Ct, {
-                                type: "border-danger",
-                                onClick: this.onResetRoomToolsClick,
-                                children: "Cancel",
-                              }),
-                            ],
-                          }),
-                        ],
-                      }),
-                      (0, r.jsx)("div", {
-                        ref: this.panelInfoExplanationBox,
-                        className: "panel-info-explanation-box",
-                      }),
-                      (0, r.jsx)("div", {
-                        ref: this.panelOptionNoteExplanationBox,
-                        className: "panel-info-explanation-box",
-                        style: { width: "auto", maxWidth: 200 },
-                      }),
-                      (0, r.jsx)("div", {
-                        ref: this.wallMaterialListRef,
-                        className: "wall-materials-list",
-                        onMouseLeave: () =>
-                          this.wallMaterialListRef.current.classList.remove(
-                            "active"
-                          ),
-                        children: this.wallMaterials.map((t, e) =>
-                          (0, r.jsxs)(
-                            "div",
-                            {
-                              className: "list-item",
-                              onClick: (e) =>
-                                this.onWallMaterialClick(
-                                  e.currentTarget,
-                                  t.title
-                                ),
-                              children: [
-                                (0, r.jsx)(
-                                  "div",
-                                  {
-                                    className: "material",
-                                    title: t.title,
-                                    children: (0, r.jsxs)("svg", {
-                                      children: [
-                                        (0, r.jsx)("rect", {
-                                          rx: "5",
-                                          ry: "5",
-                                          fill: t.fill,
-                                        }),
-                                        (0, r.jsx)("circle", {
-                                          className: "".concat(
-                                            this.selectedWallMaterial ===
-                                              t.title
-                                              ? "active-wall-material"
-                                              : ""
-                                          ),
-                                          cx: "20",
-                                          cy: "20",
-                                          r: "3",
-                                        }),
-                                      ],
-                                    }),
-                                  },
-                                  e
-                                ),
-                                (0, r.jsx)("p", { children: t.title }),
-                              ],
-                            },
-                            e
-                          )
-                        ),
-                      }),
-                      (0, r.jsxs)(qi, {
-                        panelRef: this.panel,
-                        panelControlRef: this.panelControl,
-                        onPanelMouseMove: this.onPanelMouseMove,
-                        onPanelControlClick: this.onPanelControlClick,
-                        children: [
-                          (0, r.jsx)("div", {
-                            className:
-                              "button-centered-container panel-action-button",
-                            children: (0, r.jsx)(Ct, {
-                              type: "blue",
-                              className: "show3d-button panel-transition",
-                              onClick: this.onShow3DClick,
-                              children: "View 3D",
-                            }),
-                          }),
-                          (0, r.jsxs)("li", {
-                            ref: this.undoRedoContainer,
-                            className: "undo-redo-container",
-                            children: [
-                              (0, r.jsx)("button", {
-                                className:
-                                  "btn disabled svg-center-inside-container",
-                                ref: this.undoButton,
-                                title: "Undo",
-                                onClick: this.onUndoClick,
-                                children: (0, r.jsx)(gi, {}),
-                              }),
-                              (0, r.jsx)("button", {
-                                className:
-                                  "btn disabled svg-center-inside-container",
-                                ref: this.redoButton,
-                                title: "Redo",
-                                onClick: this.onRedoClick,
-                                children: (0, r.jsx)(fi, {}),
-                              }),
-                            ],
-                          }),
-                          (0, r.jsx)("br", {}),
-                          (0, r.jsx)("li", {
-                            className: "panel-margin",
-                            children: (0, r.jsxs)("button", {
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              title: "Save floorplan",
-                              onClick: this.onSaveFloorplan,
-                              children: [
-                                (0, r.jsx)(Ze.Z, {}),
-                                (0, r.jsx)("p", { children: "SAVE" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("li", {
-                            className: "panel-margin",
-                            children: (0, r.jsxs)("button", {
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              title: "Save floorplan as",
-                              onClick: () => {
-                                !this.isFloorplanEmpty() &&
-                                  H(
-                                    this.saveFloorplanModal.current,
-                                    this.modalTimeout
-                                  );
-                              },
-                              children: [
-                                (0, r.jsxs)("div", {
-                                  className: "save-as-icon-container",
-                                  children: [
-                                    (0, r.jsx)(Ze.Z, {}),
-                                    (0, r.jsx)(li.Z, {}),
-                                  ],
-                                }),
-                                (0, r.jsx)("p", { children: "SAVE AS..." }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("li", {
-                            children: (0, r.jsxs)("button", {
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              title: "Create new floorplan",
-                              onClick: this.onCreateNewButtonClick,
-                              children: [
-                                (0, r.jsx)(Si, {}),
-                                (0, r.jsx)("p", { children: "NEW" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("br", {}),
-                          (0, r.jsx)("li", {
-                            children: (0, r.jsxs)("button", {
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              title: "Export as PNG",
-                              onClick: () => {
-                                this.isFloorplanNoWalls()
-                                  ? H(
-                                      this.showFloorplanNoWallsErrorModal
-                                        .current,
-                                      this.modalTimeout
-                                    )
-                                  : this.downloadSvg(!0, !0, !1, !1);
-                              },
-                              children: [
-                                (0, r.jsx)(Ke.Z, {}),
-                                (0, r.jsx)("p", { children: "EXPORT PNG" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("br", {}),
-                          (0, r.jsx)("li", {
-                            children: (0, r.jsxs)("button", {
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              title: "Edit floorplan GPS location",
-                              onClick: this.onFloorplanGpsCoordsClick,
-                              children: [
-                                (0, r.jsx)(Pi, {}),
-                                (0, r.jsx)("p", { children: "GPS COORDS" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("li", {
-                            children: (0, r.jsx)(Cn, {
-                              ref: this.showMapLayer2DInputRef,
-                              onChangeCallback: this.onShowOnMapLayer2DClick,
-                            }),
-                          }),
-                          (0, r.jsx)("br", {}),
-                          (0, r.jsxs)("li", {
-                            ref: this.uploadFloorplanPanelButtonContainer,
-                            className:
-                              "upload-floorplan-panel-button-container",
-                            children: [
-                              (0, r.jsxs)("button", {
-                                className:
-                                  "btn btn-default fully panel-icon-button-container",
-                                title: "Upload floorplan image",
-                                ref: this.uploadFloorplanImageMode,
-                                onClick: this.onUploadFloorplanImageClick,
-                                style: { position: "relative" },
-                                children: [
-                                  (0, r.jsx)(Ii, {}),
-                                  (0, r.jsx)(oi.Z, {
-                                    className: "settings-icon hidden",
-                                    ref: this
-                                      .uploadImageFloorplanSettingsIconRef,
-                                  }),
-                                  (0, r.jsx)("p", { children: "IMAGE" }),
-                                ],
-                              }),
-                              (0, r.jsxs)("button", {
-                                ref: this
-                                  .uploadFloorplanImageStatusContainerRef,
-                                onClick:
-                                  this
-                                    .onUploadedFloorplanImageStatusChangeClick,
-                                className:
-                                  "btn btn-default show-hide-uploaded-floorplan-image-container hidden",
-                                children: [
-                                  (0, r.jsx)(ii.Z, {
-                                    ref: this.uploadImageFloorplanShowRef,
-                                    style: { display: "none" },
-                                  }),
-                                  (0, r.jsx)(ni.Z, {
-                                    ref: this.uploadImageFloorplanHideRef,
-                                    style: { display: "none" },
-                                  }),
-                                ],
-                              }),
-                            ],
-                          }),
-                          (0, r.jsx)("br", {}),
-                          (0, r.jsx)("li", {
-                            children: (0, r.jsxs)("button", {
-                              title: "Select mode",
-                              className:
-                                "btn btn-success fully panel-icon-button-container",
-                              ref: this.selectMode,
-                              onClick: this.onSelectModeClick,
-                              children: [
-                                (0, r.jsx)(wi, {}),
-                                (0, r.jsx)("p", { children: "SELECT" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("br", {}),
-                          (0, r.jsx)("li", {
-                            className: "panel-margin",
-                            children: (0, r.jsx)("div", {
-                              ref: this.wallButtonContainer,
-                              children: (0, r.jsxs)("button", {
-                                ref: this.lineMode,
-                                className:
-                                  "btn btn-default fully panel-icon-button-container",
-                                "data-toggle": "tooltip",
-                                "data-placement": "right",
-                                title: "Make walls",
-                                onClick: this.onLineModeClick,
-                                children: [
-                                  (0, r.jsx)(ji, {}),
-                                  (0, r.jsx)("p", { children: "WALL" }),
-                                ],
-                              }),
-                            }),
-                          }),
-                          (0, r.jsxs)("li", {
-                            ref: this.wallOptionsContainer,
-                            className:
-                              "panel-margin wall-drawing-options-container hidden",
+                        (0, r.jsx)("div", {
+                          ref: this.floorplan3DContainerRef,
+                          className: "floorplan3D-container full-height hidden",
+                        }),
+                        (0, r.jsx)("div", {
+                          ref: this.showFloorplanOnMapContainerRef,
+                          className:
+                            "indoor-modal show-floorplan-on-map-container",
+                        }),
+                        (0, r.jsx)("div", {
+                          ref: this.areaValue,
+                          className: "areaValue hidden",
+                        }),
+                        (0, r.jsx)(Ei, {
+                          modalRef: this.wallTurnCWSystemExceptionModal,
+                          modalBody: (0, r.jsxs)(n.Fragment, {
                             children: [
                               (0, r.jsx)("div", {
-                                children: (0, r.jsxs)("button", {
-                                  ref: this.wallMaterialButtonRef,
-                                  className:
-                                    "btn btn-default fully panel-icon-button-container wall-material-button",
-                                  title: "Wall material",
-                                  onMouseOver: this.onWallMaterialButtonHover,
-                                  onMouseLeave: () =>
-                                    this.wallMaterialListRef.current.classList.remove(
-                                      "active"
-                                    ),
-                                  children: [
-                                    (0, r.jsx)(si.Z, {}),
-                                    (0, r.jsx)("p", { children: "MATERIAL" }),
-                                  ],
-                                }),
-                              }),
-                              (0, r.jsx)(Gt, {
-                                title: "Draw multiple walls",
-                                inputRef: this.multipleWallDrawing,
-                                onChange: this.onMultiChange,
-                                defaultChecked: !0,
-                                label: "MULTIPLE",
-                              }),
-                              (0, r.jsx)(Ut, {
-                                containerStyle: { marginBottom: 0 },
-                                label: "Wall thickness(".concat(
-                                  "metric" === this.context.userUnit
-                                    ? "cm"
-                                    : "in",
-                                  ")"
-                                ),
-                                children: (0, r.jsx)(Rt, {
-                                  ref: this.wallThickness,
-                                  inputStyle: { padding: "4px 6px" },
-                                  title: "Set wall thickness",
-                                  inputStep: this.wallWidthInputStep,
-                                  inputMin: this.wallThicknessMinValue,
-                                  inputMax: this.wallThicknessMaxValue,
-                                  defaultValue: this.wallThicknessDefaultValue,
-                                  onInputValueChanged: () => {
-                                    this.wallSize =
-                                      gt(
-                                        parseFloat(
-                                          this.wallThickness.current.getValue()
-                                        ),
-                                        this.context.userUnit,
-                                        "metric" === this.context.userUnit
-                                          ? "centimeter"
-                                          : "inch",
-                                        "meter",
-                                        !0
-                                      ) * this.meter;
-                                  },
-                                  checkInputValueChangeBeforeCall: !0,
-                                }),
-                              }),
-                            ],
-                          }),
-                          (0, r.jsx)("li", {
-                            className: "panel-margin",
-                            children: (0, r.jsxs)("button", {
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              ref: this.textMode,
-                              "data-toggle": "tooltip",
-                              "data-placement": "right",
-                              title: "Add text",
-                              onClick: this.onTextModeClick,
-                              children: [
-                                (0, r.jsx)($e.Z, {}),
-                                (0, r.jsx)("p", { children: "TEXT" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("li", {
-                            className: "panel-margin",
-                            children: (0, r.jsxs)("button", {
-                              title: "Add door",
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              ref: this.doorMode,
-                              onClick: this.onDoorModeClick,
-                              children: [
-                                (0, r.jsx)(Li, {}),
-                                (0, r.jsx)("p", { children: "DOOR" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("li", {
-                            className: "panel-margin",
-                            children: (0, r.jsxs)("button", {
-                              title: "Add window",
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              ref: this.windowMode,
-                              onClick: this.onWindowModeClick,
-                              children: [
-                                (0, r.jsx)(Wi, {}),
-                                (0, r.jsx)("p", { children: "WINDOW" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("li", {
-                            className: "panel-margin",
-                            children: (0, r.jsxs)("button", {
-                              title: "Add light",
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              ref: this.lightMode,
-                              onClick: this.onDrawLightsClick,
-                              children: [
-                                (0, r.jsx)(Oi, {}),
-                                (0, r.jsx)("p", { children: "LIGHT" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("li", {
-                            children: (0, r.jsxs)("button", {
-                              title: "Select room",
-                              className:
-                                "btn btn-default fully panel-icon-button-container",
-                              ref: this.roomMode,
-                              onClick: this.onRoomModeClick,
-                              children: [
-                                (0, r.jsx)(ai.Z, { style: { fill: "none" } }),
-                                (0, r.jsx)("p", { children: "ROOM" }),
-                              ],
-                            }),
-                          }),
-                          (0, r.jsx)("br", {}),
-                          (0, r.jsxs)("div", {
-                            style: { position: "relative" },
-                            children: [
-                              (0, r.jsx)("li", {
-                                children: (0, r.jsxs)("button", {
-                                  title: "Show layers",
-                                  className:
-                                    "btn btn-default fully panel-icon-button-container",
-                                  style: { position: "relative" },
-                                  ref: this.layerMode,
-                                  onClick: this.onLayerModeClick,
-                                  children: [
-                                    (0, r.jsx)(_e.Z, {
-                                      style: { fill: "none" },
-                                    }),
-                                    (0, r.jsx)("p", { children: "LAYERS" }),
-                                    (0, r.jsx)(ei.Z, {
-                                      ref: this.layersListArrowRef,
-                                      className: "layers-list-arrow",
-                                    }),
-                                  ],
-                                }),
-                              }),
-                              (0, r.jsxs)("div", {
-                                ref: this.layerList,
-                                className: "list-unstyled layer-list hidden",
-                                children: [
-                                  (0, r.jsx)(Gt, {
-                                    title: "Show floorplan measures",
-                                    inputRef: this.showRibRef,
-                                    onChange: this.onShowRibClick,
-                                    defaultChecked: !0,
-                                    label: "MEASURES",
-                                  }),
-                                  (0, r.jsx)(Gt, {
-                                    title: "Show grid",
-                                    inputRef: this.showBoxGrid,
-                                    onChange: this.onShowBoxGridClick,
-                                    defaultChecked: !0,
-                                    label: "GRID",
-                                  }),
-                                ],
-                              }),
-                            ],
-                          }),
-                          (0, r.jsx)("div", { style: { clear: "both" } }),
-                        ],
-                      }),
-                      (0, r.jsx)(Ei, {
-                        modalRef: this.initialModal,
-                        modalBody: (0, r.jsxs)(n.Fragment, {
-                          children: [
-                            " ",
-                            (0, r.jsxs)("div", {
-                              ref: this.recoverRef,
-                              children: [
-                                (0, r.jsx)("p", {
+                                children: (0, r.jsx)("p", {
+                                  className: "indoor-paragraph-centered",
                                   children:
-                                    "A plan exists in history. Would you like to recover it?",
+                                    "Nije pronaden nijedan pravi zid kod CW odredivanja zidova - roomMaker() metoda",
                                 }),
-                                (0, r.jsxs)(Ct, {
-                                  type: "light-blue",
-                                  className: "button-with-icon",
-                                  onClick: this.onRecoverDrafPlanClick,
-                                  children: [
-                                    (0, r.jsx)(Ri, {}),
-                                    "RECOVER FLOORPLAN",
-                                  ],
-                                }),
-                                (0, r.jsx)("p", {}),
-                                (0, r.jsx)("hr", {
-                                  className: "indoor-modal-divider",
-                                }),
-                                (0, r.jsx)("p", {
-                                  children: "Create new floorplan?",
-                                }),
-                              ],
-                            }),
-                            (0, r.jsx)("div", {
-                              className: "indoor-modal-row",
-                              children: (0, r.jsxs)(Ct, {
-                                type: "primary",
-                                className: "button-with-icon",
-                                onClick: this.onCreateEmptyPlanClick,
-                                children: [
-                                  (0, r.jsx)(ti.Z, {}),
-                                  "CREATE EMPTY PLAN",
-                                ],
                               }),
-                            }),
-                          ],
-                        }),
-                        modalFooter: null,
-                      }),
-                      (0, r.jsx)(Ei, {
-                        modalRef: this.newFloorplanModalWithSave,
-                        modalBody: (0, r.jsxs)(n.Fragment, {
-                          children: [
-                            " ",
-                            (0, r.jsx)("div", {
-                              children: (0, r.jsx)("p", {
-                                className: "indoor-paragraph-centered",
-                                children:
-                                  "Do you want to save your current work before creating new floorplan?",
-                              }),
-                            }),
-                            (0, r.jsxs)("div", {
-                              className: "indoor-modal-row around",
-                              children: [
-                                (0, r.jsx)(Ct, {
+                              (0, r.jsx)("div", {
+                                className: "indoor-modal-row center",
+                                children: (0, r.jsx)(Ct, {
                                   type: "primary",
-                                  onClick:
-                                    this.onSaveAndCreateNewFloorplanClick,
-                                  children: "SAVE",
-                                }),
-                                (0, r.jsx)(Ct, {
-                                  type: "light-blue",
-                                  onClick:
-                                    this.onDontSaveAndCreateNewFloorplanClick,
-                                  children: "DON'T SAVE",
-                                }),
-                                (0, r.jsx)(Ct, {
-                                  type: "border-danger",
                                   onClick: () =>
                                     G(
-                                      this.newFloorplanModalWithSave.current,
+                                      this.wallTurnCWSystemExceptionModal
+                                        .current,
                                       this.modalTimeout
                                     ),
-                                  children: "CANCEL",
+                                  children: "CLOSE",
                                 }),
-                              ],
-                            }),
-                          ],
+                              }),
+                            ],
+                          }),
+                          modalFooter: null,
                         }),
-                        modalFooter: null,
-                      }),
-                      (0, r.jsx)(Ei, {
-                        modalRef: this.newFloorplanModalNoSave,
-                        modalBody: (0, r.jsxs)(n.Fragment, {
+                        (0, r.jsxs)("div", {
+                          ref: this.drawingAreaPopup,
+                          className: "drawing-area-popup",
                           children: [
-                            " ",
-                            (0, r.jsxs)("div", {
-                              children: [
-                                (0, r.jsx)("p", {
-                                  children: "Create new empty floorplan.",
-                                }),
-                                (0, r.jsx)(Ct, {
-                                  type: "primary",
-                                  onClick:
-                                    this.onModalCreateNewEmptyFloorplanClick,
-                                  children: "CREATE EMPTY",
-                                }),
-                              ],
-                            }),
-                            (0, r.jsx)("hr", {
-                              className: "indoor-modal-divider",
-                            }),
-                            (0, r.jsxs)("div", {
-                              children: [
-                                (0, r.jsx)("p", {
-                                  children:
-                                    "Create new floorplan from current one.",
-                                }),
-                                (0, r.jsx)(Ct, {
-                                  type: "light-blue",
-                                  onClick:
-                                    this
-                                      .onModalCreateNewFloorplanFromCurrentClick,
-                                  children: "CREATE",
-                                }),
-                              ],
-                            }),
-                            (0, r.jsx)("hr", {
-                              className: "indoor-modal-divider",
-                            }),
+                            (0, r.jsx)("div", { className: "popup-tip" }),
                             (0, r.jsx)("div", {
-                              children: (0, r.jsx)(Ct, {
-                                type: "border-danger",
-                                onClick: () =>
-                                  G(
-                                    this.newFloorplanModalNoSave.current,
-                                    this.modalTimeout
-                                  ),
-                                children: "CANCEL",
+                              className: "popup-content",
+                              children: (0, r.jsxs)("div", {
+                                className: "popup-content-container",
+                                children: [
+                                  (0, r.jsx)("div", {
+                                    className: "close-tooltip",
+                                    children: (0, r.jsx)("div", {
+                                      onClick:
+                                        this.onDrawingAreaPopupCloseClick,
+                                      children: (0, r.jsx)(Ye.Z, {}),
+                                    }),
+                                  }),
+                                  (0, r.jsx)("div", {
+                                    ref: this.popupContentRef,
+                                    className: "content-mounting-container",
+                                  }),
+                                ],
                               }),
                             }),
                           ],
                         }),
-                        modalFooter: null,
-                      }),
-                      (0, r.jsx)(Ei, {
-                        modalRef: this.saveFloorplanModal,
-                        modalBody: (0, r.jsxs)(n.Fragment, {
+                        (0, r.jsxs)(on, {
+                          containerRef: this.wallTools,
+                          onCloseRightBox: this.onWallToolsCloseClick,
                           children: [
-                            (0, r.jsx)(Et, {
-                              label: "Floorplan name:",
-                              inputRef: this.floorplanNameInput,
-                              inputStyle: { marginBottom: 10 },
+                            (0, r.jsx)("h3", { children: "Modify the wall" }),
+                            (0, r.jsx)(bn, {
+                              ref: this.wallWidthNumberSliderInput,
+                              sliderInputRef: this.wallWidth,
+                              valueLabelText: (0, r.jsxs)(n.Fragment, {
+                                children: [
+                                  "Width [",
+                                  (0, r.jsx)("span", {
+                                    children: ""
+                                      .concat(this.wallThicknessMinValue, "-")
+                                      .concat(this.wallThicknessMaxValue),
+                                  }),
+                                  "] :",
+                                  " ",
+                                  (0, r.jsx)("span", {
+                                    ref: this.wallWidthValue,
+                                  }),
+                                  " ",
+                                  (0, r.jsx)("span", {
+                                    children: "".concat(
+                                      "metric" ===
+                                        this.measureSystemContext.userUnit
+                                        ? "cm"
+                                        : "in"
+                                    ),
+                                  }),
+                                ],
+                              }),
+                              sliderStep: this.wallWidthInputStep,
+                              minValue: this.wallThicknessMinValue,
+                              maxValue: this.wallThicknessMaxValue,
+                              onSliderValueChanged: this.onWallWidthInputChange,
+                              onSliderChangeFinished: () => {
+                                (this.saveNeeded = !0),
+                                  this.save(!1, !0),
+                                  this.editor.showScaleBox();
+                              },
                             }),
-                            (0, r.jsxs)("div", {
-                              className: "indoor-modal-row between",
-                              children: [
-                                (0, r.jsx)(Ct, {
-                                  type: "primary",
-                                  onClick: this.onModalSaveFloorplanClick,
-                                  children: "SAVE FLOORPLAN",
-                                }),
-                                (0, r.jsx)(Ct, {
-                                  type: "border-danger",
-                                  onClick: this.onSaveFloorplanModalCancel,
-                                  children: "CANCEL",
-                                }),
-                              ],
+                            (0, r.jsx)(Ut, {
+                              label: (0, r.jsxs)(n.Fragment, {
+                                children: [
+                                  "Length: ",
+                                  (0, r.jsx)("span", {
+                                    ref: this.wallLengthValue,
+                                  }),
+                                  " ",
+                                  (0, r.jsx)("span", {
+                                    children: "".concat(
+                                      "metric" ===
+                                        this.measureSystemContext.userUnit
+                                        ? "m"
+                                        : "ft"
+                                    ),
+                                  }),
+                                ],
+                              }),
+                              children: (0, r.jsx)(Rt, {
+                                ref: this.wallLength,
+                                inputStep: this.wallLengthInputStep,
+                                inputMin: this.wallLengthInputStep,
+                                inputMax: 1 / 0,
+                                onInputValueChanged:
+                                  this.onWallLengthInputChange,
+                                checkInputValueChangeBeforeCall: !0,
+                              }),
+                            }),
+                            (0, r.jsx)(Ut, {
+                              label: "Wall material",
+                              children: (0, r.jsx)(Jt, {
+                                ref: this.wallMaterialSelectRef,
+                                dropdownMenuRef: this.wallMaterialDropdownMenu,
+                                onListItemClick:
+                                  this.onWallMaterialListItemClick,
+                                listItems: this.wallMaterials.map(
+                                  (t) => t.title
+                                ),
+                              }),
+                            }),
+                            (0, r.jsx)("div", {
+                              className: "button-centered-container",
+                              children: (0, r.jsx)(Ct, {
+                                type: "delete",
+                                onClick: this.onWallTrashClick,
+                                children: "Delete wall",
+                              }),
                             }),
                           ],
                         }),
-                        modalFooter: null,
-                      }),
-                      (0, r.jsx)(Ei, {
-                        modalRef: this.textToLayerModal,
-                        modalBody: (0, r.jsxs)(n.Fragment, {
+                        (0, r.jsxs)(on, {
+                          containerRef: this.objBoundingBox,
+                          onCloseRightBox: this.onObjBoundingBoxBackButtonClick,
                           children: [
+                            (0, r.jsx)("h3", { children: "Modify text" }),
+                            (0, r.jsx)(bn, {
+                              ref: this.objBoundingBoxRotationNumberSliderInput,
+                              sliderInputRef: this.bboxRotation,
+                              valueLabelText: (0, r.jsxs)(n.Fragment, {
+                                children: [
+                                  (0, r.jsx)(hi, {}),
+                                  "Rotation : ",
+                                  (0, r.jsx)("span", {
+                                    ref: this.bboxRotationVal,
+                                  }),
+                                  " \xb0",
+                                ],
+                              }),
+                              sliderStep: 1,
+                              minValue: -180,
+                              maxValue: 180,
+                              onSliderValueChanged: this.onBBoxRotationChange,
+                              onSliderChangeFinished: () => {
+                                (this.saveNeeded = !0), this.save(!1, !0);
+                              },
+                            }),
+                            (0, r.jsx)(bn, {
+                              ref: this.objBoundingBoxFontSizeNumberSliderInput,
+                              sliderInputRef: this.modifyFontSizeSlider,
+                              valueLabelText: (0, r.jsxs)(n.Fragment, {
+                                children: [
+                                  (0, r.jsx)(ci, {}),
+                                  "Font size : ",
+                                  (0, r.jsx)("span", {
+                                    ref: this.bboxFontSizeVal,
+                                  }),
+                                ],
+                              }),
+                              sliderStep: 0.1,
+                              minValue: 10,
+                              maxValue: 70,
+                              onSliderValueChanged: this.onModifyFontSizeChange,
+                              onSliderChangeFinished: () => {
+                                (this.saveNeeded = !0), this.save(!1, !0);
+                              },
+                            }),
+                            (0, r.jsx)(Et, {
+                              formGroupRef: this.objBoundingBoxTextContent,
+                              label: (0, r.jsxs)(n.Fragment, {
+                                children: [(0, r.jsx)(mi, {}), "Text content:"],
+                              }),
+                              labelStyle: {
+                                display: "flex",
+                                alignItems: "center",
+                              },
+                              inputRef: this.modifyTextContent,
+                              onChange: this.onModifyTextContentChange,
+                            }),
                             (0, r.jsx)(Ut, {
-                              label: "Choose text color",
+                              labelStyle: {
+                                display: "flex",
+                                alignItems: "center",
+                              },
+                              label: (0, r.jsxs)(n.Fragment, {
+                                children: [(0, r.jsx)(ui, {}), "Text color:"],
+                              }),
                               children: (0, r.jsx)("div", {
-                                className: "color-row-container",
+                                className: "color-grid-container",
                                 children: be.map((t) =>
                                   (0, r.jsx)(
                                     "div",
                                     {
-                                      className: "color textEditorColor",
+                                      className: "color textEditorColorModify",
                                       style: {
                                         color: t.gradientStartColor,
                                         background: "linear-gradient(30deg, "
@@ -26576,99 +25837,906 @@
                                 ),
                               }),
                             }),
-                            (0, r.jsx)("hr", {
-                              className: "indoor-modal-divider",
+                            (0, r.jsx)("div", {
+                              className: "button-centered-container",
+                              children: (0, r.jsx)(Ct, {
+                                type: "delete",
+                                onClick: this.onObjectBBoxDeleteClick,
+                                children: "Delete text",
+                              }),
                             }),
+                          ],
+                        }),
+                        (0, r.jsx)(An, {
+                          ref: this.uploadFloorplanImageToolsRef,
+                          mainComponentThis: this,
+                          floorplanImageTools: this.floorplanImageTools,
+                          uploadImageFloorplanSettingsIconRef:
+                            this.uploadImageFloorplanSettingsIconRef,
+                          uploadFloorplanImageStatusContainerRef:
+                            this.uploadFloorplanImageStatusContainerRef,
+                          uploadImageFloorplanHideRef:
+                            this.uploadImageFloorplanHideRef,
+                          uploadImageFloorplanShowRef:
+                            this.uploadImageFloorplanShowRef,
+                          boxFloorplanImage: this.boxFloorplanImage,
+                          uploadFloorplanImageErrorMessageRef:
+                            this.uploadFloorplanImageErrorMessageRef,
+                          uploadFloorplanImageErrorModal:
+                            this.uploadFloorplanImageErrorModal,
+                          floorplanImagePattern: this.floorplanImagePattern,
+                          floorplanImage: this.floorplanImage,
+                        }),
+                        (0, r.jsxs)(on, {
+                          containerRef: this.objTools,
+                          onCloseRightBox: this.onDoorWindowCloseClick,
+                          children: [
+                            (0, r.jsx)("h3", {
+                              ref: this.objToolsTitleRef,
+                              children: "Modify door",
+                            }),
+                            (0, r.jsx)("div", {
+                              ref: this.objToolsHinge,
+                              children: (0, r.jsx)("div", {
+                                className: "button-centered-container",
+                                children: (0, r.jsx)(Ct, {
+                                  type: "primary",
+                                  onClick: this.onObjToolsHingeClick,
+                                  children: "REVERSE SWING",
+                                }),
+                              }),
+                            }),
+                            (0, r.jsx)("br", { ref: this.objToolsBreakLine }),
                             (0, r.jsx)(bn, {
-                              ref: this.sizePoliceNumberSliderInput,
-                              sliderInputRef: this.sizePoliceInputSlider,
-                              sizePoliceComponent: (0, r.jsxs)("div", {
-                                className: "form-control label",
-                                style: {
-                                  display: "flex",
-                                  alignItems: "center",
-                                },
+                              ref: this.doorWindowWidthNumberSliderInput,
+                              sliderInputRef: this.doorWindowWidth,
+                              valueLabelText: (0, r.jsxs)(n.Fragment, {
                                 children: [
-                                  (0, r.jsx)(ci, {}),
-                                  "Font size : ",
+                                  "Width [",
                                   (0, r.jsx)("span", {
-                                    ref: this.textLayerModalContent,
+                                    ref: this.doorWindowWidthScale,
+                                  }),
+                                  "] : ",
+                                  (0, r.jsx)("span", {
+                                    ref: this.doorWindowWidthVal,
+                                  }),
+                                  " ",
+                                  (0, r.jsx)("span", {
+                                    children: "".concat(
+                                      "metric" ===
+                                        this.measureSystemContext.userUnit
+                                        ? "cm"
+                                        : "in"
+                                    ),
                                   }),
                                 ],
                               }),
-                              sliderStep: 1,
-                              minValue: 10,
-                              maxValue: 70,
-                              defaultValue: 15,
-                              onSliderValueChanged: this.onSizePoliceChange,
-                              onSliderChangeFinished: null,
+                              sliderStep: this.doorWindowWidthInputStep,
+                              onSliderValueChanged:
+                                this.onDoorWindowWidthChange,
+                              onSliderChangeFinished: () => {
+                                (this.saveNeeded = !0), this.save(!1, !0);
+                              },
                             }),
-                            (0, r.jsx)("hr", {
-                              className: "indoor-modal-divider",
+                            (0, r.jsx)("div", {
+                              className: "button-centered-container",
+                              children: (0, r.jsx)(Ct, {
+                                type: "delete",
+                                onClick: this.onObjTrashButtonClick,
+                                children: (0, r.jsx)("span", {
+                                  ref: this.objToolsDeleteButtonText,
+                                  children: "Delete door",
+                                }),
+                              }),
+                            }),
+                          ],
+                        }),
+                        (0, r.jsxs)(on, {
+                          containerRef: this.roomTools,
+                          onCloseRightBox: this.onResetRoomToolsClick,
+                          children: [
+                            (0, r.jsx)(Ut, {
+                              label: (0, r.jsxs)(n.Fragment, {
+                                children: [
+                                  "Estimated surface: ",
+                                  (0, r.jsx)("span", { className: "size" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)(Ut, {
+                              label:
+                                "If you have the actual area, you can write it(".concat(
+                                  "metric" ===
+                                    this.measureSystemContext.userUnit
+                                    ? "m\xb2"
+                                    : "ft\xb2",
+                                  ")"
+                                ),
+                              children: (0, r.jsx)(Rt, {
+                                ref: this.roomSurface,
+                                placeholder: "Real surface",
+                                inputStep: this.roomSurfaceInputStep,
+                                inputMin: this.roomSurfaceInputStep,
+                                inputMax: 1 / 0,
+                                checkInputValueChangeBeforeCall: !0,
+                              }),
                             }),
                             (0, r.jsx)(Et, {
-                              label: "Your text:",
-                              inputRef: this.labelBox,
+                              label: "Type room name",
+                              inputRef: this.roomName,
+                              placeholder: "e.g. Bedroom",
                             }),
-                          ],
-                        }),
-                        modalFooter: (0, r.jsxs)("div", {
-                          children: [
-                            (0, r.jsx)(Ct, {
-                              type: "primary",
-                              onClick: this.onTextEditorApplyClick,
-                              children: "Apply",
-                            }),
-                            (0, r.jsx)(Ct, {
-                              type: "border-danger",
-                              onClick: this.onTextEditorCancelClick,
-                              children: "Cancel",
-                            }),
-                          ],
-                        }),
-                      }),
-                      (0, r.jsx)(Ei, {
-                        modalRef: this.showFloorplanNoWallsErrorModal,
-                        modalBody: (0, r.jsxs)(n.Fragment, {
-                          children: [
-                            (0, r.jsx)("div", {
-                              children: (0, r.jsx)("p", {
-                                className: "indoor-paragraph-centered",
-                                children:
-                                  "Floorplan must contain at least one wall in order to use this feature",
+                            (0, r.jsx)(Ut, {
+                              label: "or select it:",
+                              children: (0, r.jsx)(Jt, {
+                                ref: this.roomNameSelectRef,
+                                dropdownMenuRef: this.roomNameDropdownMenu,
+                                onListItemClick: this.onRoomNameItemClick,
+                                listItems: we,
                               }),
                             }),
-                            (0, r.jsx)("div", {
-                              className: "indoor-modal-row center",
-                              children: (0, r.jsx)(Ct, {
-                                type: "primary",
-                                onClick: () =>
-                                  G(
-                                    this.showFloorplanNoWallsErrorModal.current,
-                                    this.modalTimeout
+                            (0, r.jsxs)("div", {
+                              children: [
+                                (0, r.jsx)(Ct, {
+                                  type: "primary",
+                                  onClick: this.onApplySurfaceClick,
+                                  children: "Apply",
+                                }),
+                                (0, r.jsx)(Ct, {
+                                  type: "border-danger",
+                                  onClick: this.onResetRoomToolsClick,
+                                  children: "Cancel",
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                        (0, r.jsx)("div", {
+                          ref: this.panelInfoExplanationBox,
+                          className: "panel-info-explanation-box",
+                        }),
+                        (0, r.jsx)("div", {
+                          ref: this.panelOptionNoteExplanationBox,
+                          className: "panel-info-explanation-box",
+                          style: { width: "auto", maxWidth: 200 },
+                        }),
+                        (0, r.jsx)("div", {
+                          ref: this.wallMaterialListRef,
+                          className: "wall-materials-list",
+                          onMouseLeave: () =>
+                            this.wallMaterialListRef.current.classList.remove(
+                              "active"
+                            ),
+                          children: this.wallMaterials.map((t, e) =>
+                            (0, r.jsxs)(
+                              "div",
+                              {
+                                className: "list-item",
+                                onClick: (e) =>
+                                  this.onWallMaterialClick(
+                                    e.currentTarget,
+                                    t.title
                                   ),
-                                children: "OK",
+                                children: [
+                                  (0, r.jsx)(
+                                    "div",
+                                    {
+                                      className: "material",
+                                      title: t.title,
+                                      children: (0, r.jsxs)("svg", {
+                                        children: [
+                                          (0, r.jsx)("rect", {
+                                            rx: "5",
+                                            ry: "5",
+                                            fill: t.fill,
+                                          }),
+                                          (0, r.jsx)("circle", {
+                                            className: "".concat(
+                                              this.selectedWallMaterial ===
+                                                t.title
+                                                ? "active-wall-material"
+                                                : ""
+                                            ),
+                                            cx: "20",
+                                            cy: "20",
+                                            r: "3",
+                                          }),
+                                        ],
+                                      }),
+                                    },
+                                    e
+                                  ),
+                                  (0, r.jsx)("p", { children: t.title }),
+                                ],
+                              },
+                              e
+                            )
+                          ),
+                        }),
+                        (0, r.jsxs)(qi, {
+                          panelRef: this.panel,
+                          panelControlRef: this.panelControl,
+                          onPanelMouseMove: this.onPanelMouseMove,
+                          onPanelControlClick: this.onPanelControlClick,
+                          children: [
+                            (0, r.jsx)("div", {
+                              className:
+                                "button-centered-container panel-action-button",
+                              children: (0, r.jsx)(Ct, {
+                                type: "blue",
+                                className: "show3d-button panel-transition",
+                                onClick: this.onShow3DClick,
+                                children: "View 3D",
                               }),
                             }),
+                            (0, r.jsxs)("li", {
+                              ref: this.undoRedoContainer,
+                              className: "undo-redo-container",
+                              children: [
+                                (0, r.jsx)("button", {
+                                  className:
+                                    "btn disabled svg-center-inside-container",
+                                  ref: this.undoButton,
+                                  title: "Undo",
+                                  onClick: this.onUndoClick,
+                                  children: (0, r.jsx)(gi, {}),
+                                }),
+                                (0, r.jsx)("button", {
+                                  className:
+                                    "btn disabled svg-center-inside-container",
+                                  ref: this.redoButton,
+                                  title: "Redo",
+                                  onClick: this.onRedoClick,
+                                  children: (0, r.jsx)(fi, {}),
+                                }),
+                              ],
+                            }),
+                            (0, r.jsx)("br", {}),
+                            (0, r.jsx)("li", {
+                              className: "panel-margin",
+                              children: (0, r.jsxs)("button", {
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                title: "Save floorplan",
+                                onClick: this.onSaveFloorplan,
+                                children: [
+                                  (0, r.jsx)(Ze.Z, {}),
+                                  (0, r.jsx)("p", { children: "SAVE" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("li", {
+                              className: "panel-margin",
+                              children: (0, r.jsxs)("button", {
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                title: "Save floorplan as",
+                                onClick: () => {
+                                  !this.isFloorplanEmpty() &&
+                                    H(
+                                      this.saveFloorplanModal.current,
+                                      this.modalTimeout
+                                    );
+                                },
+                                children: [
+                                  (0, r.jsxs)("div", {
+                                    className: "save-as-icon-container",
+                                    children: [
+                                      (0, r.jsx)(Ze.Z, {}),
+                                      (0, r.jsx)(li.Z, {}),
+                                    ],
+                                  }),
+                                  (0, r.jsx)("p", { children: "SAVE AS..." }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("li", {
+                              children: (0, r.jsxs)("button", {
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                title: "Create new floorplan",
+                                onClick: this.onCreateNewButtonClick,
+                                children: [
+                                  (0, r.jsx)(Si, {}),
+                                  (0, r.jsx)("p", { children: "NEW" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("br", {}),
+                            (0, r.jsx)("li", {
+                              children: (0, r.jsxs)("button", {
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                title: "Export as PNG",
+                                onClick: () => {
+                                  this.isFloorplanNoWalls()
+                                    ? H(
+                                        this.showFloorplanNoWallsErrorModal
+                                          .current,
+                                        this.modalTimeout
+                                      )
+                                    : this.downloadSvg(!0, !0, !1, !1);
+                                },
+                                children: [
+                                  (0, r.jsx)(Ke.Z, {}),
+                                  (0, r.jsx)("p", { children: "EXPORT PNG" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("br", {}),
+                            (0, r.jsx)("li", {
+                              children: (0, r.jsxs)("button", {
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                title: "Edit floorplan GPS location",
+                                onClick: this.onFloorplanGpsCoordsClick,
+                                children: [
+                                  (0, r.jsx)(Pi, {}),
+                                  (0, r.jsx)("p", { children: "GPS COORDS" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("li", {
+                              children: (0, r.jsx)(Cn, {
+                                ref: this.showMapLayer2DInputRef,
+                                onChangeCallback: this.onShowOnMapLayer2DClick,
+                              }),
+                            }),
+                            (0, r.jsx)("br", {}),
+                            (0, r.jsxs)("li", {
+                              ref: this.uploadFloorplanPanelButtonContainer,
+                              className:
+                                "upload-floorplan-panel-button-container",
+                              children: [
+                                (0, r.jsxs)("button", {
+                                  className:
+                                    "btn btn-default fully panel-icon-button-container",
+                                  title: "Upload floorplan image",
+                                  ref: this.uploadFloorplanImageMode,
+                                  onClick: this.onUploadFloorplanImageClick,
+                                  style: { position: "relative" },
+                                  children: [
+                                    (0, r.jsx)(Ii, {}),
+                                    (0, r.jsx)(oi.Z, {
+                                      className: "settings-icon hidden",
+                                      ref: this
+                                        .uploadImageFloorplanSettingsIconRef,
+                                    }),
+                                    (0, r.jsx)("p", { children: "IMAGE" }),
+                                  ],
+                                }),
+                                (0, r.jsxs)("button", {
+                                  ref: this
+                                    .uploadFloorplanImageStatusContainerRef,
+                                  onClick:
+                                    this
+                                      .onUploadedFloorplanImageStatusChangeClick,
+                                  className:
+                                    "btn btn-default show-hide-uploaded-floorplan-image-container hidden",
+                                  children: [
+                                    (0, r.jsx)(ii.Z, {
+                                      ref: this.uploadImageFloorplanShowRef,
+                                      style: { display: "none" },
+                                    }),
+                                    (0, r.jsx)(ni.Z, {
+                                      ref: this.uploadImageFloorplanHideRef,
+                                      style: { display: "none" },
+                                    }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            (0, r.jsx)("br", {}),
+                            (0, r.jsx)("li", {
+                              children: (0, r.jsxs)("button", {
+                                title: "Select mode",
+                                className:
+                                  "btn btn-success fully panel-icon-button-container",
+                                ref: this.selectMode,
+                                onClick: this.onSelectModeClick,
+                                children: [
+                                  (0, r.jsx)(wi, {}),
+                                  (0, r.jsx)("p", { children: "SELECT" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("br", {}),
+                            (0, r.jsx)("li", {
+                              className: "panel-margin",
+                              children: (0, r.jsx)("div", {
+                                ref: this.wallButtonContainer,
+                                children: (0, r.jsxs)("button", {
+                                  ref: this.lineMode,
+                                  className:
+                                    "btn btn-default fully panel-icon-button-container",
+                                  "data-toggle": "tooltip",
+                                  "data-placement": "right",
+                                  title: "Make walls",
+                                  onClick: this.onLineModeClick,
+                                  children: [
+                                    (0, r.jsx)(ji, {}),
+                                    (0, r.jsx)("p", { children: "WALL" }),
+                                  ],
+                                }),
+                              }),
+                            }),
+                            (0, r.jsxs)("li", {
+                              ref: this.wallOptionsContainer,
+                              className:
+                                "panel-margin wall-drawing-options-container hidden",
+                              children: [
+                                (0, r.jsx)("div", {
+                                  children: (0, r.jsxs)("button", {
+                                    ref: this.wallMaterialButtonRef,
+                                    className:
+                                      "btn btn-default fully panel-icon-button-container wall-material-button",
+                                    title: "Wall material",
+                                    onMouseOver: this.onWallMaterialButtonHover,
+                                    onMouseLeave: () =>
+                                      this.wallMaterialListRef.current.classList.remove(
+                                        "active"
+                                      ),
+                                    children: [
+                                      (0, r.jsx)(si.Z, {}),
+                                      (0, r.jsx)("p", { children: "MATERIAL" }),
+                                    ],
+                                  }),
+                                }),
+                                (0, r.jsx)(Gt, {
+                                  title: "Draw multiple walls",
+                                  inputRef: this.multipleWallDrawing,
+                                  onChange: this.onMultiChange,
+                                  defaultChecked: !0,
+                                  label: "MULTIPLE",
+                                }),
+                                (0, r.jsx)(Ut, {
+                                  containerStyle: { marginBottom: 0 },
+                                  label: "Wall thickness(".concat(
+                                    "metric" ===
+                                      this.measureSystemContext.userUnit
+                                      ? "cm"
+                                      : "in",
+                                    ")"
+                                  ),
+                                  children: (0, r.jsx)(Rt, {
+                                    ref: this.wallThickness,
+                                    inputStyle: { padding: "4px 6px" },
+                                    title: "Set wall thickness",
+                                    inputStep: this.wallWidthInputStep,
+                                    inputMin: this.wallThicknessMinValue,
+                                    inputMax: this.wallThicknessMaxValue,
+                                    defaultValue:
+                                      this.wallThicknessDefaultValue,
+                                    onInputValueChanged: () => {
+                                      this.wallSize =
+                                        gt(
+                                          parseFloat(
+                                            this.wallThickness.current.getValue()
+                                          ),
+                                          this.measureSystemContext.userUnit,
+                                          "metric" ===
+                                            this.measureSystemContext.userUnit
+                                            ? "centimeter"
+                                            : "inch",
+                                          "meter",
+                                          !0
+                                        ) * this.meter;
+                                    },
+                                    checkInputValueChangeBeforeCall: !0,
+                                  }),
+                                }),
+                              ],
+                            }),
+                            (0, r.jsx)("li", {
+                              className: "panel-margin",
+                              children: (0, r.jsxs)("button", {
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                ref: this.textMode,
+                                "data-toggle": "tooltip",
+                                "data-placement": "right",
+                                title: "Add text",
+                                onClick: this.onTextModeClick,
+                                children: [
+                                  (0, r.jsx)($e.Z, {}),
+                                  (0, r.jsx)("p", { children: "TEXT" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("li", {
+                              className: "panel-margin",
+                              children: (0, r.jsxs)("button", {
+                                title: "Add door",
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                ref: this.doorMode,
+                                onClick: this.onDoorModeClick,
+                                children: [
+                                  (0, r.jsx)(Li, {}),
+                                  (0, r.jsx)("p", { children: "DOOR" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("li", {
+                              className: "panel-margin",
+                              children: (0, r.jsxs)("button", {
+                                title: "Add window",
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                ref: this.windowMode,
+                                onClick: this.onWindowModeClick,
+                                children: [
+                                  (0, r.jsx)(Wi, {}),
+                                  (0, r.jsx)("p", { children: "WINDOW" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("li", {
+                              className: "panel-margin",
+                              children: (0, r.jsxs)("button", {
+                                title: "Add light",
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                ref: this.lightMode,
+                                onClick: this.onDrawLightsClick,
+                                children: [
+                                  (0, r.jsx)(Oi, {}),
+                                  (0, r.jsx)("p", { children: "LIGHT" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("li", {
+                              children: (0, r.jsxs)("button", {
+                                title: "Select room",
+                                className:
+                                  "btn btn-default fully panel-icon-button-container",
+                                ref: this.roomMode,
+                                onClick: this.onRoomModeClick,
+                                children: [
+                                  (0, r.jsx)(ai.Z, { style: { fill: "none" } }),
+                                  (0, r.jsx)("p", { children: "ROOM" }),
+                                ],
+                              }),
+                            }),
+                            (0, r.jsx)("br", {}),
+                            (0, r.jsxs)("div", {
+                              style: { position: "relative" },
+                              children: [
+                                (0, r.jsx)("li", {
+                                  children: (0, r.jsxs)("button", {
+                                    title: "Show layers",
+                                    className:
+                                      "btn btn-default fully panel-icon-button-container",
+                                    style: { position: "relative" },
+                                    ref: this.layerMode,
+                                    onClick: this.onLayerModeClick,
+                                    children: [
+                                      (0, r.jsx)(_e.Z, {
+                                        style: { fill: "none" },
+                                      }),
+                                      (0, r.jsx)("p", { children: "LAYERS" }),
+                                      (0, r.jsx)(ei.Z, {
+                                        ref: this.layersListArrowRef,
+                                        className: "layers-list-arrow",
+                                      }),
+                                    ],
+                                  }),
+                                }),
+                                (0, r.jsxs)("div", {
+                                  ref: this.layerList,
+                                  className: "list-unstyled layer-list hidden",
+                                  children: [
+                                    (0, r.jsx)(Gt, {
+                                      title: "Show floorplan measures",
+                                      inputRef: this.showRibRef,
+                                      onChange: this.onShowRibClick,
+                                      defaultChecked: !0,
+                                      label: "MEASURES",
+                                    }),
+                                    (0, r.jsx)(Gt, {
+                                      title: "Show grid",
+                                      inputRef: this.showBoxGrid,
+                                      onChange: this.onShowBoxGridClick,
+                                      defaultChecked: !0,
+                                      label: "GRID",
+                                    }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            (0, r.jsx)("div", { style: { clear: "both" } }),
                           ],
                         }),
-                        modalFooter: null,
-                      }),
-                      (0, r.jsx)("div", {
-                        ref: this.boxInfo,
-                        className: "boxInfo box-info panel-transition",
-                      }),
-                      (0, r.jsx)("div", {
-                        ref: this.boxPlanName,
-                        className: "box-plan-name panel-transition",
-                      }),
-                      (0, r.jsx)(en, { mainComponentThis: this }),
-                    ],
+                        (0, r.jsx)(Ei, {
+                          modalRef: this.initialModal,
+                          modalBody: (0, r.jsxs)(n.Fragment, {
+                            children: [
+                              " ",
+                              (0, r.jsxs)("div", {
+                                ref: this.recoverRef,
+                                children: [
+                                  (0, r.jsx)("p", {
+                                    children:
+                                      "A plan exists in history. Would you like to recover it?",
+                                  }),
+                                  (0, r.jsxs)(Ct, {
+                                    type: "light-blue",
+                                    className: "button-with-icon",
+                                    onClick: this.onRecoverDrafPlanClick,
+                                    children: [
+                                      (0, r.jsx)(Ri, {}),
+                                      "RECOVER FLOORPLAN",
+                                    ],
+                                  }),
+                                  (0, r.jsx)("p", {}),
+                                  (0, r.jsx)("hr", {
+                                    className: "indoor-modal-divider",
+                                  }),
+                                  (0, r.jsx)("p", {
+                                    children: "Create new floorplan?",
+                                  }),
+                                ],
+                              }),
+                              (0, r.jsx)("div", {
+                                className: "indoor-modal-row",
+                                children: (0, r.jsxs)(Ct, {
+                                  type: "primary",
+                                  className: "button-with-icon",
+                                  onClick: this.onCreateEmptyPlanClick,
+                                  children: [
+                                    (0, r.jsx)(ti.Z, {}),
+                                    "CREATE EMPTY PLAN",
+                                  ],
+                                }),
+                              }),
+                            ],
+                          }),
+                          modalFooter: null,
+                        }),
+                        (0, r.jsx)(Ei, {
+                          modalRef: this.newFloorplanModalWithSave,
+                          modalBody: (0, r.jsxs)(n.Fragment, {
+                            children: [
+                              " ",
+                              (0, r.jsx)("div", {
+                                children: (0, r.jsx)("p", {
+                                  className: "indoor-paragraph-centered",
+                                  children:
+                                    "Do you want to save your current work before creating new floorplan?",
+                                }),
+                              }),
+                              (0, r.jsxs)("div", {
+                                className: "indoor-modal-row around",
+                                children: [
+                                  (0, r.jsx)(Ct, {
+                                    type: "primary",
+                                    onClick:
+                                      this.onSaveAndCreateNewFloorplanClick,
+                                    children: "SAVE",
+                                  }),
+                                  (0, r.jsx)(Ct, {
+                                    type: "light-blue",
+                                    onClick:
+                                      this.onDontSaveAndCreateNewFloorplanClick,
+                                    children: "DON'T SAVE",
+                                  }),
+                                  (0, r.jsx)(Ct, {
+                                    type: "border-danger",
+                                    onClick: () =>
+                                      G(
+                                        this.newFloorplanModalWithSave.current,
+                                        this.modalTimeout
+                                      ),
+                                    children: "CANCEL",
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          modalFooter: null,
+                        }),
+                        (0, r.jsx)(Ei, {
+                          modalRef: this.newFloorplanModalNoSave,
+                          modalBody: (0, r.jsxs)(n.Fragment, {
+                            children: [
+                              " ",
+                              (0, r.jsxs)("div", {
+                                children: [
+                                  (0, r.jsx)("p", {
+                                    children: "Create new empty floorplan.",
+                                  }),
+                                  (0, r.jsx)(Ct, {
+                                    type: "primary",
+                                    onClick:
+                                      this.onModalCreateNewEmptyFloorplanClick,
+                                    children: "CREATE EMPTY",
+                                  }),
+                                ],
+                              }),
+                              (0, r.jsx)("hr", {
+                                className: "indoor-modal-divider",
+                              }),
+                              (0, r.jsxs)("div", {
+                                children: [
+                                  (0, r.jsx)("p", {
+                                    children:
+                                      "Create new floorplan from current one.",
+                                  }),
+                                  (0, r.jsx)(Ct, {
+                                    type: "light-blue",
+                                    onClick:
+                                      this
+                                        .onModalCreateNewFloorplanFromCurrentClick,
+                                    children: "CREATE",
+                                  }),
+                                ],
+                              }),
+                              (0, r.jsx)("hr", {
+                                className: "indoor-modal-divider",
+                              }),
+                              (0, r.jsx)("div", {
+                                children: (0, r.jsx)(Ct, {
+                                  type: "border-danger",
+                                  onClick: () =>
+                                    G(
+                                      this.newFloorplanModalNoSave.current,
+                                      this.modalTimeout
+                                    ),
+                                  children: "CANCEL",
+                                }),
+                              }),
+                            ],
+                          }),
+                          modalFooter: null,
+                        }),
+                        (0, r.jsx)(Ei, {
+                          modalRef: this.saveFloorplanModal,
+                          modalBody: (0, r.jsxs)(n.Fragment, {
+                            children: [
+                              (0, r.jsx)(Et, {
+                                label: "Floorplan name:",
+                                inputRef: this.floorplanNameInput,
+                                inputStyle: { marginBottom: 10 },
+                              }),
+                              (0, r.jsxs)("div", {
+                                className: "indoor-modal-row between",
+                                children: [
+                                  (0, r.jsx)(Ct, {
+                                    type: "primary",
+                                    onClick: this.onModalSaveFloorplanClick,
+                                    children: "SAVE FLOORPLAN",
+                                  }),
+                                  (0, r.jsx)(Ct, {
+                                    type: "border-danger",
+                                    onClick: this.onSaveFloorplanModalCancel,
+                                    children: "CANCEL",
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          modalFooter: null,
+                        }),
+                        (0, r.jsx)(Ei, {
+                          modalRef: this.textToLayerModal,
+                          modalBody: (0, r.jsxs)(n.Fragment, {
+                            children: [
+                              (0, r.jsx)(Ut, {
+                                label: "Choose text color",
+                                children: (0, r.jsx)("div", {
+                                  className: "color-row-container",
+                                  children: be.map((t) =>
+                                    (0, r.jsx)(
+                                      "div",
+                                      {
+                                        className: "color textEditorColor",
+                                        style: {
+                                          color: t.gradientStartColor,
+                                          background: "linear-gradient(30deg, "
+                                            .concat(t.gradientStartColor, ", ")
+                                            .concat(t.gradientStopColor, ")"),
+                                        },
+                                      },
+                                      t.gradientStartColor
+                                    )
+                                  ),
+                                }),
+                              }),
+                              (0, r.jsx)("hr", {
+                                className: "indoor-modal-divider",
+                              }),
+                              (0, r.jsx)(bn, {
+                                ref: this.sizePoliceNumberSliderInput,
+                                sliderInputRef: this.sizePoliceInputSlider,
+                                sizePoliceComponent: (0, r.jsxs)("div", {
+                                  className: "form-control label",
+                                  style: {
+                                    display: "flex",
+                                    alignItems: "center",
+                                  },
+                                  children: [
+                                    (0, r.jsx)(ci, {}),
+                                    "Font size : ",
+                                    (0, r.jsx)("span", {
+                                      ref: this.textLayerModalContent,
+                                    }),
+                                  ],
+                                }),
+                                sliderStep: 1,
+                                minValue: 10,
+                                maxValue: 70,
+                                defaultValue: 15,
+                                onSliderValueChanged: this.onSizePoliceChange,
+                                onSliderChangeFinished: null,
+                              }),
+                              (0, r.jsx)("hr", {
+                                className: "indoor-modal-divider",
+                              }),
+                              (0, r.jsx)(Et, {
+                                label: "Your text:",
+                                inputRef: this.labelBox,
+                              }),
+                            ],
+                          }),
+                          modalFooter: (0, r.jsxs)("div", {
+                            children: [
+                              (0, r.jsx)(Ct, {
+                                type: "primary",
+                                onClick: this.onTextEditorApplyClick,
+                                children: "Apply",
+                              }),
+                              (0, r.jsx)(Ct, {
+                                type: "border-danger",
+                                onClick: this.onTextEditorCancelClick,
+                                children: "Cancel",
+                              }),
+                            ],
+                          }),
+                        }),
+                        (0, r.jsx)(Ei, {
+                          modalRef: this.showFloorplanNoWallsErrorModal,
+                          modalBody: (0, r.jsxs)(n.Fragment, {
+                            children: [
+                              (0, r.jsx)("div", {
+                                children: (0, r.jsx)("p", {
+                                  className: "indoor-paragraph-centered",
+                                  children:
+                                    "Floorplan must contain at least one wall in order to use this feature",
+                                }),
+                              }),
+                              (0, r.jsx)("div", {
+                                className: "indoor-modal-row center",
+                                children: (0, r.jsx)(Ct, {
+                                  type: "primary",
+                                  onClick: () =>
+                                    G(
+                                      this.showFloorplanNoWallsErrorModal
+                                        .current,
+                                      this.modalTimeout
+                                    ),
+                                  children: "OK",
+                                }),
+                              }),
+                            ],
+                          }),
+                          modalFooter: null,
+                        }),
+                        (0, r.jsx)("div", {
+                          ref: this.boxInfo,
+                          className: "boxInfo box-info panel-transition",
+                        }),
+                        (0, r.jsx)("div", {
+                          ref: this.boxPlanName,
+                          className: "box-plan-name panel-transition",
+                        }),
+                        (0, r.jsx)(en, { mainComponentThis: this }),
+                      ],
+                    }),
                   }),
                 }),
-              }),
-            ],
-          });
+              ],
+            })
+          );
         }
       }
       const el = tl;
@@ -26751,7 +26819,9 @@
                     );
                   }
                 }
-                (this.homeAssistantConnection = t),
+                (this.homeAssistantUserConfig = await (0, xe.iE)(t)),
+                  sl.log("HA config", this.homeAssistantUserConfig),
+                  (this.homeAssistantConnection = t),
                   this.setState({ loading: !1 });
               } else
                 this.setState({
@@ -26761,6 +26831,7 @@
             }),
             (this.state = { loading: !0, error: null }),
             (this.homeAssistantConnection = null),
+            (this.homeAssistantUserConfig = {}),
             (this.authenticateToHomeAssistant =
               this.authenticateToHomeAssistant.bind(this)),
             (this.connectToHomeAssistant =
@@ -26777,6 +26848,7 @@
             ? (0, r.jsx)(It, { message: e })
             : (0, r.jsx)(el, {
                 connection: this.homeAssistantConnection,
+                userConfig: this.homeAssistantUserConfig,
                 routeID: "02bd86e4-e309-4b14-a2db-c86998861c92",
               });
         }
