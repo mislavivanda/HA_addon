@@ -12369,20 +12369,15 @@
           );
           (this.mapCornersGpsCoords = l.geometry.coordinates[0].slice(0, -1)),
             this.mapCornerCoordsDebug &&
-              this._map
-                .getSource("mapCornersAfterSource")
-                .setData({
-                  type: "Feature",
-                  geometry: {
-                    type: "Polygon",
-                    coordinates: [
-                      [
-                        ...this.mapCornersGpsCoords,
-                        this.mapCornersGpsCoords[0],
-                      ],
-                    ],
-                  },
-                });
+              this._map.getSource("mapCornersAfterSource").setData({
+                type: "Feature",
+                geometry: {
+                  type: "Polygon",
+                  coordinates: [
+                    [...this.mapCornersGpsCoords, this.mapCornersGpsCoords[0]],
+                  ],
+                },
+              });
         }
       }
       function en(t) {
@@ -17462,7 +17457,7 @@
               try {
                 return await (0, Kn.v0)({
                   hassUrl: window.location.origin,
-                  redirectUrl: window.location.origin,
+                  redirectUrl: document.URL,
                   loadTokens: () => {
                     if (!t)
                       return localStorage.getItem("glamos_token")
