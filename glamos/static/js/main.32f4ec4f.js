@@ -1,4 +1,4 @@
-/*! For license information please see main.87391566.js.LICENSE.txt */
+/*! For license information please see main.32f4ec4f.js.LICENSE.txt */
 "use strict";
 (this.webpackChunkintegration = this.webpackChunkintegration || []).push([
   [179],
@@ -5693,7 +5693,7 @@
               } else this.closePopup();
               x.post.call(
                 this,
-                "/klet3d/".concat(
+                "/klet3dd/".concat(
                   this.props.mainComponentThis.props.floorplanID
                 ),
                 { entitydata: t },
