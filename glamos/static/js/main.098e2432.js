@@ -17455,8 +17455,10 @@
           super(),
             (this.authenticateToHomeAssistant = async (t) => {
               try {
+                let previousURL = document.URL;
                 return await (0, Kn.v0)({
                   hassUrl: window.location.origin,
+                  redirectUrl: previousURL,
                   loadTokens: () => {
                     if (!t)
                       return localStorage.getItem("glamos_token")
