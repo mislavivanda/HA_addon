@@ -1,4 +1,4 @@
-/*! For license information please see main.7e54d699.js.LICENSE.txt */
+/*! For license information please see main.098e2432.js.LICENSE.txt */
 "use strict";
 (this.webpackChunkintegration = this.webpackChunkintegration || []).push([
   [179],
@@ -6,8 +6,6 @@
     8417: (t, e, i) => {
       var s = i(537),
         o = i(336);
-      console.log("Document URL", document.URL);
-      console.log("Window location origin", window.location.origin);
       const n = document.URL + "static/media/logo-text@2x.23f596ec.png",
         a = document.URL + "static/media/logo-text.23f596ec.png",
         r = { default: n, retina: a };
@@ -5695,7 +5693,7 @@
               } else this.closePopup();
               x.post.call(
                 this,
-                "/klet3dd/".concat(
+                "/klet3d/".concat(
                   this.props.mainComponentThis.props.floorplanID
                 ),
                 { entitydata: t },
@@ -12371,15 +12369,20 @@
           );
           (this.mapCornersGpsCoords = l.geometry.coordinates[0].slice(0, -1)),
             this.mapCornerCoordsDebug &&
-              this._map.getSource("mapCornersAfterSource").setData({
-                type: "Feature",
-                geometry: {
-                  type: "Polygon",
-                  coordinates: [
-                    [...this.mapCornersGpsCoords, this.mapCornersGpsCoords[0]],
-                  ],
-                },
-              });
+              this._map
+                .getSource("mapCornersAfterSource")
+                .setData({
+                  type: "Feature",
+                  geometry: {
+                    type: "Polygon",
+                    coordinates: [
+                      [
+                        ...this.mapCornersGpsCoords,
+                        this.mapCornersGpsCoords[0],
+                      ],
+                    ],
+                  },
+                });
         }
       }
       function en(t) {
