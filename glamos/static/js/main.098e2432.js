@@ -17457,7 +17457,6 @@
               try {
                 return await (0, Kn.v0)({
                   hassUrl: window.location.origin,
-                  redirectUrl: document.URL,
                   loadTokens: () => {
                     if (!t)
                       return localStorage.getItem("glamos_token")
