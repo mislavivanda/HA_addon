@@ -1,4 +1,4 @@
-/*! For license information please see main.32f4ec4f.js.LICENSE.txt */
+/*! For license information please see main.7e54d699.js.LICENSE.txt */
 "use strict";
 (this.webpackChunkintegration = this.webpackChunkintegration || []).push([
   [179],
@@ -6,6 +6,8 @@
     8417: (t, e, i) => {
       var s = i(537),
         o = i(336);
+      console.log("Document URL", document.URL);
+      console.log("Window location origin", window.location.origin);
       const n = document.URL + "static/media/logo-text@2x.23f596ec.png",
         a = document.URL + "static/media/logo-text.23f596ec.png",
         r = { default: n, retina: a };
@@ -522,7 +524,7 @@
           navigator.msMaxTouchPoints > 0,
         D = (t) => !t && 0 !== t,
         M = (t, e, i) => (0, v.ZP)(t, e).to(i),
-        P = (t) =>
+        W = (t) =>
           t.getDate().toString().padStart(2, "0") +
           "." +
           (t.getMonth() + 1).toString().padStart(2, "0") +
@@ -534,7 +536,7 @@
           t.getMinutes().toString().padStart(2, "0") +
           ":" +
           t.getSeconds().toString().padStart(2, "0");
-      var W = i(1317);
+      var P = i(1317);
       function k(t, e) {
         let i =
           arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null;
@@ -542,17 +544,17 @@
           this,
           "/location",
           (e) => {
-            W.log("Ipapify response:"),
-              W.log(e),
+            P.log("Ipapify response:"),
+              P.log(e),
               this.mounted && e
                 ? e.latitude && e.longitude
-                  ? (W.log("Postavi lat long u prvom"),
+                  ? (P.log("Postavi lat long u prvom"),
                     this.setState(
                       { [t]: [e.longitude, e.latitude] },
                       () => !!i && i()
                     ))
                   : e.geoplugin_latitude && e.geoplugin_longitude
-                  ? (W.log("postavi lat long u drugom"),
+                  ? (P.log("postavi lat long u drugom"),
                     this.setState(
                       { [t]: [e.geoplugin_longitude, e.geoplugin_latitude] },
                       () => !!i && i()
@@ -1316,7 +1318,7 @@
         }
       }
       const Mt = Dt;
-      class Pt extends s.Component {
+      class Wt extends s.Component {
         constructor(t) {
           super(t),
             (this.setInitialValue = (t) => (this.initialValue = t)),
@@ -1418,7 +1420,7 @@
           });
         }
       }
-      const Wt = Pt;
+      const Pt = Wt;
       var kt = i(1317);
       class Rt extends s.Component {
         constructor(t) {
@@ -4831,8 +4833,8 @@
           }
         }
       };
-      var Pe = i(1317);
-      function We(t) {
+      var We = i(1317);
+      function Pe(t) {
         let e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
         if (
           "floorplan_image_scaling" === this.mode ||
@@ -4943,8 +4945,8 @@
             )
               if (s.params.bindBox)
                 this.binder ||
-                  (Pe.log("Napravi mainComponentThis.binder za text"),
-                  Pe.log(s),
+                  (We.log("Napravi mainComponentThis.binder za text"),
+                  We.log(s),
                   (this.binder = new Me(
                     "free",
                     "boundingBox",
@@ -5002,8 +5004,8 @@
                 }
               } else
                 this.binder.graph &&
-                  (Pe.log("Error binder"),
-                  Pe.log(this.binder),
+                  (We.log("Error binder"),
+                  We.log(this.binder),
                   t.target === this.binder.graph.firstChild
                     ? (this.cursor("move"),
                       this.binder.graph.firstChild.setAttribute(
@@ -5032,7 +5034,7 @@
                     (K(this.WALLS[s].start, e) || K(this.WALLS[s].end, e)) &&
                       t.push(this.WALLS[s]);
                   let i = !1;
-                  Pe.log(t);
+                  We.log(t);
                   for (let e = 0; e < t.length; e++)
                     if (
                       -1 !==
@@ -5044,7 +5046,7 @@
                       break;
                     }
                   i ||
-                    (Pe.log("Create node binder"),
+                    (We.log("Create node binder"),
                     (this.binder = this.qSVG.create(this.boxBind, "circle", {
                       id: "circlebinder",
                       class: "circle_css_2",
@@ -5161,11 +5163,11 @@
               i &&
               !this.binder
             ) {
-              Pe.log("Wall objects"),
-                Pe.log(this.editor.objFromWall(i.wall)),
+              We.log("Wall objects"),
+                We.log(this.editor.objFromWall(i.wall)),
                 this.selectedBinder &&
                   this.editor.objFromWall(i.wall).length > 0 &&
-                  Pe.log(
+                  We.log(
                     this.editor
                       .objFromWall(i.wall)
                       .indexOf(this.selectedBinder.obj)
@@ -5739,6 +5741,7 @@
               searchFilteredData: t.availableEntities,
               needsSave: !1,
             }),
+            (this.mounted = !1),
             (this.closePopup = this.closePopup.bind(this)),
             (this.onSaveChangesClick = this.onSaveChangesClick.bind(this)),
             (this.handleEntityCheckboxClick =
@@ -5747,10 +5750,14 @@
             (this.handleSearchChange = this.handleSearchChange.bind(this));
         }
         componentDidMount() {
-          this.setState({
-            initialBindedEntity: this.props.bindedEntity,
-            selectedEntity: this.props.bindedEntity,
-          });
+          (this.mounted = !0),
+            this.setState({
+              initialBindedEntity: this.props.bindedEntity,
+              selectedEntity: this.props.bindedEntity,
+            });
+        }
+        componentWillUnmount() {
+          this.mounted = !1;
         }
         render() {
           const {
@@ -5905,12 +5912,12 @@
                                             children: e.domain,
                                           }),
                                           (0, l.jsx)("td", {
-                                            children: P(
+                                            children: W(
                                               new Date(e.last_changed)
                                             ),
                                           }),
                                           (0, l.jsx)("td", {
-                                            children: P(
+                                            children: W(
                                               new Date(e.last_updated)
                                             ),
                                           }),
@@ -7094,8 +7101,8 @@
           });
         }
       }
-      const Pi = Mi;
-      class Wi extends s.Component {
+      const Wi = Mi;
+      class Pi extends s.Component {
         render() {
           return (0, l.jsxs)("defs", {
             children: [
@@ -7410,7 +7417,7 @@
           });
         }
       }
-      const ki = Wi;
+      const ki = Pi;
       var Ri = i(7483),
         Fi = i(5542),
         Ni = i(7579),
@@ -8523,7 +8530,7 @@
                               : "ft",
                             ")"
                           ),
-                          children: (0, l.jsx)(Wt, {
+                          children: (0, l.jsx)(Pt, {
                             ref: this.floorplanWidth,
                             placeholder: "Floorplan width",
                             inputStep: this.floorplanDimensionsInputStep,
@@ -8567,7 +8574,7 @@
                               : "ft",
                             ")"
                           ),
-                          children: (0, l.jsx)(Wt, {
+                          children: (0, l.jsx)(Pt, {
                             ref: this.floorplanLength,
                             placeholder: "Floorplan length",
                             inputStep: this.floorplanDimensionsInputStep,
@@ -8651,7 +8658,7 @@
                                             marginTop: "0.5rem",
                                           },
                                           children: [
-                                            (0, l.jsx)(Wt, {
+                                            (0, l.jsx)(Pt, {
                                               ref: this.selectedWallLengthInput,
                                               placeholder:
                                                 "Insert line length(".concat(
@@ -8877,7 +8884,7 @@
       class os extends s.Component {
         render() {
           return (0, l.jsx)("div", {
-            children: (0, l.jsx)(Wt, {
+            children: (0, l.jsx)(Pt, {
               ref: this.props.inputNumberComponentRef,
               inputStep: this.props.sliderStep,
               disabled: this.props.disabled,
@@ -9458,14 +9465,14 @@
             this.selectedBinder.windowRotationAxisDirectionGraph.remove(),
           (this.selectedBinder = null));
       }
-      function Ps() {
+      function Ws() {
         this.binder &&
           (this.binder.graph
             ? this.binder.graph.remove()
             : this.binder.remove(),
           (this.binder = null));
       }
-      function Ws(t) {
+      function Ps(t) {
         Bs.log("Angle", t.angle), Bs.log("Angle sign", t.angleSign);
         const e = t.thick / 2 + 5,
           i = t.angle * (Math.PI / 180),
@@ -11174,8 +11181,8 @@
       }
       var Do = i(8569),
         Mo = i(2178),
-        Po = i.n(Mo),
-        Wo = i(1221),
+        Wo = i.n(Mo),
+        Po = i(1221),
         ko = i(825),
         Ro = i(4329),
         Fo = i(6325),
@@ -12364,20 +12371,15 @@
           );
           (this.mapCornersGpsCoords = l.geometry.coordinates[0].slice(0, -1)),
             this.mapCornerCoordsDebug &&
-              this._map
-                .getSource("mapCornersAfterSource")
-                .setData({
-                  type: "Feature",
-                  geometry: {
-                    type: "Polygon",
-                    coordinates: [
-                      [
-                        ...this.mapCornersGpsCoords,
-                        this.mapCornersGpsCoords[0],
-                      ],
-                    ],
-                  },
-                });
+              this._map.getSource("mapCornersAfterSource").setData({
+                type: "Feature",
+                geometry: {
+                  type: "Polygon",
+                  coordinates: [
+                    [...this.mapCornersGpsCoords, this.mapCornersGpsCoords[0]],
+                  ],
+                },
+              });
         }
       }
       function en(t) {
@@ -14395,7 +14397,7 @@
                   t.props.mainComponentThis.floorplanGeneral
                     .floorplan_bearing || 0,
                 n = [Math.PI / 2, 0, 0],
-                a = Po().MercatorCoordinate.fromLngLat(s, 0),
+                a = Wo().MercatorCoordinate.fromLngLat(s, 0),
                 r = {
                   translateX: a.x,
                   translateY: a.y,
@@ -14631,7 +14633,7 @@
             (this.wallBottomPlaneMaterial = null),
             (this.wallTopPlaneMaterial = null),
             (this.textureLoader = new Do.TextureLoader()),
-            (this.objLoader = new Wo.L()),
+            (this.objLoader = new Po.L()),
             (this.materialLoader = new ko.v()),
             (this.gltfLoader = new Fo.E()),
             (this.fontLoader = new Ro.J()),
@@ -14845,7 +14847,7 @@
                     className: "panel-info-explanation-box",
                     style: { width: "auto", maxWidth: 200 },
                   }),
-                  (0, l.jsxs)(Pi, {
+                  (0, l.jsxs)(Wi, {
                     panelRef: this.panel,
                     panelControlRef: this.panelControl,
                     onPanelControlClick: this.onPanelControlClick,
@@ -15775,7 +15777,7 @@
       }
       const Dn = Ln;
       var Mn = i(1317);
-      function Pn(t, e) {
+      function Wn(t, e) {
         t &&
           (window.removeEventListener("resize", this.handleWindowResize),
           window.removeEventListener("keydown", this.handleKeyDown, {
@@ -15787,7 +15789,7 @@
               capture: !0,
             }));
       }
-      function Wn() {
+      function Pn() {
         this.isFloorplanNoWalls()
           ? z(this.showFloorplanNoWallsErrorModal.current, this.modalTimeout)
           : o.render(
@@ -16493,15 +16495,15 @@
               s.createRef()),
             (this.windowRotationOptionsContainerRef = s.createRef()),
             (this.objBoundingBoxHAEntitiesContainerRef = s.createRef()),
-            (this.onShow3DClick = Wn.bind(this)),
+            (this.onShow3DClick = Pn.bind(this)),
             (this.initHistory = Us.bind(this)),
             (this.resetHistory = Zs.bind(this)),
             (this.save = Ks.bind(this)),
             (this.determineBoxPlanNameValue = Ys.bind(this)),
             (this.load = _s.bind(this)),
             (this.removeSelectedBinder = Ms.bind(this)),
-            (this.removeBinder = Ps.bind(this)),
-            (this.createWindowRotationPropertiesBinder = Ws.bind(this)),
+            (this.removeBinder = Ws.bind(this)),
+            (this.createWindowRotationPropertiesBinder = Ps.bind(this)),
             (this.exportFloorplanPngOnLoadCallback = Qs.bind(this)),
             (this.downloadSvg = Js.bind(this)),
             (this.onShowBoxGridClick = Gn.bind(this)),
@@ -16518,7 +16520,7 @@
             (this.handleTouchStart = ti.bind(this)),
             (this.handleTouchMove = ii.bind(this)),
             (this.handleTouchEnd = si.bind(this)),
-            (this.textAndUploadFloorplanImageBinderCreation = We.bind(this)),
+            (this.textAndUploadFloorplanImageBinderCreation = Pe.bind(this)),
             (this.roomModeBinderCreation = ke.bind(this)),
             (this.homeAssistantEntityBinderCreation = Re.bind(this)),
             (this.selectModeObj2DWallNodeWallSegmentBinderCreation =
@@ -16566,7 +16568,7 @@
             (this.isFloorplanEmpty = $s.bind(this)),
             (this.isFloorplanNoWalls = to.bind(this)),
             (this.onUploadedFloorplanImageStatusChangeClick = Os.bind(this)),
-            (this.resizeAndKeyDownEventListenersControl = Pn.bind(this)),
+            (this.resizeAndKeyDownEventListenersControl = Wn.bind(this)),
             (this.setWallToolsValues = To.bind(this)),
             (this.createRoomPath = Ls.bind(this)),
             (this.createRoomBinderPath = Ds.bind(this)),
@@ -16990,7 +16992,7 @@
                                   }),
                                 ],
                               }),
-                              children: (0, l.jsx)(Wt, {
+                              children: (0, l.jsx)(Pt, {
                                 disabled: !0,
                                 ref: this.wallLength,
                                 inputStep: this.wallLengthInputStep,
@@ -17187,7 +17189,7 @@
                                     : "ft\xb2",
                                   ")"
                                 ),
-                              children: (0, l.jsx)(Wt, {
+                              children: (0, l.jsx)(Pt, {
                                 disabled: !0,
                                 ref: this.roomSurface,
                                 placeholder: "Real surface",
@@ -17223,7 +17225,7 @@
                           className: "panel-info-explanation-box",
                           style: { width: "auto", maxWidth: 200 },
                         }),
-                        (0, l.jsxs)(Pi, {
+                        (0, l.jsxs)(Wi, {
                           panelRef: this.panel,
                           panelControlRef: this.panelControl,
                           onPanelControlClick: this.onPanelControlClick,
@@ -17457,7 +17459,7 @@
               try {
                 return await (0, Kn.v0)({
                   hassUrl: window.location.origin,
-                  redirectUrl: void 0,
+                  redirectUrl: window.location.origin,
                   loadTokens: () => {
                     if (!t)
                       return localStorage.getItem("glamos_token")
