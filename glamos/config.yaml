@@ -19,8 +19,8 @@ options:
   floorplanID: null
   licenseKey: null
 schema:
-  floorplanID: string
-  licenseKey: string
+  floorplanID: str
+  licenseKey: str
 #stage: stable, experimental or deprecated
 #advanced: Set this to true to require the user to have enabled "Advanced" mode for it to show. -> AKO stage NIJE stable
 #OPCIJE ZA POSTAVLJANJE ADD-ON U LIJEVI PANEL
