@@ -103,11 +103,10 @@
       })();
     </script>
     <script>
-      //*RASPBERY WORKING
       const sourcePaths = [
         "env-config.js",
         "static/js/226.7863a405.js",
-        "static/js/main.94da829e.js",
+        "static/js/main.ab56d182.js",
         "static/css/main.81ae7288.css",
       ];
       for (let i = 0; i < sourcePaths.length; i++) {
@@ -115,11 +114,7 @@
         const element = document.createElement(isStyle ? "link" : "script");
         if (isStyle) {
           element.setAttribute("rel", "stylesheet");
-        } else {
-          if (i > 0) {
-            element.setAttribute("defer", "defer");
-          }
-        }
+        } else element.setAttribute("defer", "defer");
         element.setAttribute(
           "referrerpolicy",
           "strict-origin-when-cross-origin"
