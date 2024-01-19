@@ -34,7 +34,7 @@ echo ${floorplanID}
 echo ${licenseKey}
 rm -rf ./build/env-config.js
 touch ./build/env-config.js
-echo "window._env_ = { floorplanID: '${floorplanID}' }" >> ./build/env-config.js
+echo "window._env_ = { floorplanID: '${floorplanID}', licenseKey: '${licenseKey}' }" >> ./build/env-config.js
 
 # chmod -R u=rwx /var/lib/nginx
 # chmod -R g=rwx /var/lib/nginx
