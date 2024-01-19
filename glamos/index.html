@@ -115,7 +115,11 @@
         const element = document.createElement(isStyle ? "link" : "script");
         if (isStyle) {
           element.setAttribute("rel", "stylesheet");
-        } else element.setAttribute("defer", "defer");
+        } else {
+          if (i > 0) {
+            element.setAttribute("defer", "defer");
+          }
+        }
         element.setAttribute(
           "referrerpolicy",
           "strict-origin-when-cross-origin"
