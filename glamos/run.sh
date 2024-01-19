@@ -30,9 +30,11 @@ CONFIG_PATH=/data/options.json
 floorplanID=$(jq --raw-output '.floorplanID // empty' $CONFIG_PATH)
 licenseKey=$(jq --raw-output '.licenseKey // empty' $CONFIG_PATH)
 
+echo floorplanID
+echo licenseKey
 rm -rf ./build/env-config.js
 touch ./build/env-config.js
-echo "window._env_ = { floorplanID: ${floorplanID}, licenseKey: ${licenseKey} }" >> ./build/env-config.js
+echo "window._env_ = { floorplanID: ${floorplanID} }" >> ./build/env-config.js
 
 # chmod -R u=rwx /var/lib/nginx
 # chmod -R g=rwx /var/lib/nginx
