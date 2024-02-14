@@ -7584,26 +7584,24 @@
                                   this.removeIntermediateColor,
                                 onChange: this.onSensorParameterChange,
                               }),
-                              a.form
-                                .slice(-1)
-                                .map((t) =>
-                                  (0, l.jsx)(
-                                    be,
-                                    {
-                                      containerStyle: {
-                                        marginBottom: "0.5rem",
-                                      },
-                                      isNumberInput: t.isNumberInput,
-                                      label: t.label,
-                                      value: t.value,
-                                      labelClasses: "label-form-control-cancel",
-                                      item: t,
-                                      error: t.error,
-                                      onChange: this.onSensorParameterChange,
+                              a.form.slice(-1).map((t) =>
+                                (0, l.jsx)(
+                                  be,
+                                  {
+                                    containerStyle: {
+                                      marginBottom: "0.5rem",
                                     },
-                                    t.field
-                                  )
-                                ),
+                                    isNumberInput: t.isNumberInput,
+                                    label: t.label,
+                                    value: t.value,
+                                    labelClasses: "label-form-control-cancel",
+                                    item: t,
+                                    error: t.error,
+                                    onChange: this.onSensorParameterChange,
+                                  },
+                                  t.field
+                                )
+                              ),
                             ],
                           })
                         : null,
@@ -14349,20 +14347,15 @@
           );
           (this.mapCornersGpsCoords = l.geometry.coordinates[0].slice(0, -1)),
             this.mapCornerCoordsDebug &&
-              this._map
-                .getSource("mapCornersAfterSource")
-                .setData({
-                  type: "Feature",
-                  geometry: {
-                    type: "Polygon",
-                    coordinates: [
-                      [
-                        ...this.mapCornersGpsCoords,
-                        this.mapCornersGpsCoords[0],
-                      ],
-                    ],
-                  },
-                });
+              this._map.getSource("mapCornersAfterSource").setData({
+                type: "Feature",
+                geometry: {
+                  type: "Polygon",
+                  coordinates: [
+                    [...this.mapCornersGpsCoords, this.mapCornersGpsCoords[0]],
+                  ],
+                },
+              });
         }
       }
       function fa(t) {
@@ -20468,12 +20461,13 @@
                     localStorage.setItem("glamos_token", JSON.stringify(e));
                   },
                 };
-                e.redirectUrl = window.location.origin
-                //   "".concat(window.location.protocol, "//")
-                //   .concat(window.location.host)
-                //   .concat(window.location.pathname)
-                //   .concat(window.location.search)),
-                  br.log("Redirect URL", e.redirectUrl);
+                e.redirectUrl = ""
+                  .concat(window.location.protocol, "//")
+                  .concat(window.location.host)
+                  .concat(window.location.pathname)
+                  .concat(window.location.search);
+                br.log("Redirect URL", e.redirectUrl);
+                window.location.push(e.redirectUrl);
                 return await (0, mr.v0)(e);
               } catch (e) {
                 return (
