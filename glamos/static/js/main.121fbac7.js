@@ -20467,7 +20467,7 @@
                   .concat(window.location.pathname)
                   .concat(window.location.search);
                 br.log("Redirect URL", e.redirectUrl);
-                window.location.push(e.redirectUrl);
+                window.history.pushState({}, '', e.redirectUrl);
                 return await (0, mr.v0)(e);
               } catch (e) {
                 return (
