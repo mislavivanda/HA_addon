@@ -20631,6 +20631,8 @@
                   });
                 xr.log("Auth token parsed", i), xr.log(JSON.stringify(i));
                 xr.log("Window origin: ", window.location.origin);
+                  const { protocol, host, pathname, search } = window.location;
+                xr.log("Url", `${protocol}//${host}${pathname}${search}`)
                 try {
                   e = await (0, br.I5)({ auth: i });
                 } catch (t) {
